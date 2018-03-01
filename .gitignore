@@ -8,7 +8,7 @@ Servers/*
 ·şÎñÆ÷/*
 Servers2/*
 pdfbin/*
-target/
+/**/target/*
 .settings/
 *.MF
 *.class
