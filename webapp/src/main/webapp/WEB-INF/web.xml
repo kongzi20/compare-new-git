@@ -18,7 +18,7 @@
 	</listener>
 	<!-- 自定义环境变量 启动 -->
 	<listener>
-		<listener-class>com.iris.egrant.core.listener.StartupListener</listener-class>
+		<listener-class>com.test.example.core.listener.StartupListener</listener-class>
 	</listener> 
 	<session-config>
 		<session-timeout>1</session-timeout>

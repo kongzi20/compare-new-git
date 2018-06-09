@@ -4,13 +4,13 @@
 
 <mapper namespace="Compare">
 
-	<resultMap id="dataSummaryVoMap" type="com.iris.egrant.schedule.master.model.DataSummaryVO" >
+	<resultMap id="dataSummaryVoMap" type="com.test.example.schedule.master.model.DataSummaryVO" >
 		<result property="minKeyCode" column="min_key_code" />
 		<result property="maxKeyCode" column="max_key_code" />
 		<result property="count" column="count" />
 	</resultMap>
 	
-	<resultMap id="compareResultVOMap" type="com.iris.egrant.code.compare.model.CompareResultVO" >
+	<resultMap id="compareResultVOMap" type="com.test.example.code.compare.model.CompareResultVO" >
 		<result property="resultId" column="result_id" />
 		<result property="sourceId" column="source_id" />
 		<result property="targetId" column="target_id" />
@@ -19,7 +19,7 @@
 		<result property="targetContent" column="target_content" javaType="java.lang.String"  />
 	</resultMap> 
 	
-	<resultMap id="compareResultSyncVOMap" type="com.iris.egrant.code.compare.model.CompareResultSyncVO" >
+	<resultMap id="compareResultSyncVOMap" type="com.test.example.code.compare.model.CompareResultSyncVO" >
 		<result property="prpCode" column="prp_code" />
 		<result property="type" column="type" />
 	</resultMap> 

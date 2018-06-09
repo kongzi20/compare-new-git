@@ -44,11 +44,11 @@
 		<level value="DEBUG" />
 	</logger>
 	
-	<logger name="com.iris.egrant">
+	<logger name="com.test.example">
 		<level value="INFO" />
 	</logger> 
 	
-	<logger name="com.iris.egrant.schedule.lifecycle.manager">
+	<logger name="com.test.example.schedule.lifecycle.manager">
 		<level value="ERROR" />
 	</logger>    -->
  

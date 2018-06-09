@@ -5,11 +5,11 @@
 	default-lazy-init="false">
 	
 	<!-- 启动注册 -->
-	<bean id="registerOnStartUpManager" class="com.iris.egrant.schedule.lifecycle.manager.RegisterOnStartUpManager" scope="singleton" />
+	<bean id="registerOnStartUpManager" class="com.test.example.schedule.lifecycle.manager.RegisterOnStartUpManager" scope="singleton" />
 	<!-- 心跳 -->
-	<bean id="heartBeatManager" class="com.iris.egrant.schedule.lifecycle.manager.HeartBeatManager" scope="singleton" />
+	<bean id="heartBeatManager" class="com.test.example.schedule.lifecycle.manager.HeartBeatManager" scope="singleton" />
 	<!-- 节点信息管理 -->
-	<bean id="lifecycleManager" class="com.iris.egrant.schedule.lifecycle.manager.LifecycleManager" scope="singleton" />
+	<bean id="lifecycleManager" class="com.test.example.schedule.lifecycle.manager.LifecycleManager" scope="singleton" />
 	
 	<!-- hb -->
 	<bean name="hbScheduler"

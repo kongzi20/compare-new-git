@@ -31,9 +31,9 @@
 	</bean>
 	
 		<!-- 服务工厂 -->	
-	<bean id="serviceFactory" class="com.iris.egrant.core.sf.LocalServiceFactory" />
+	<bean id="serviceFactory" class="com.test.example.core.sf.LocalServiceFactory" />
 	
-	<bean id="appSettingContext" class="com.iris.egrant.code.compare.service.AppSettingContext"  lazy-init="false"></bean>
+	<bean id="appSettingContext" class="com.test.example.code.compare.service.AppSettingContext"  lazy-init="false"></bean>
 	
 	<!-- 支持 spring 的注解缓存 -->
 	<bean id="ehCacheCacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" p:configLocation="classpath:ehcache.xml" p:shared="true" />

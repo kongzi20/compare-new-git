@@ -7,43 +7,43 @@
 	   <description>Spring 注解配置</description>
 	
 	<!-- compare service -->
-    <context:component-scan base-package="com.iris.egrant.code.compare.service" scoped-proxy="interfaces" />  
-    <context:component-scan base-package="com.iris.egrant.code.compare.dao" scoped-proxy="targetClass" />  
+    <context:component-scan base-package="com.test.example.code.compare.service" scoped-proxy="interfaces" />
+    <context:component-scan base-package="com.test.example.code.compare.dao" scoped-proxy="targetClass" />
 
 	<!-- compare   -->   
-	  <context:component-scan base-package="com.iris.egrant.schedule.master.compare" scoped-proxy="interfaces" />
-	  <context:component-scan base-package="com.iris.egrant.code.compare.dao" scoped-proxy="targetClass" />
-	  <context:component-scan base-package="com.iris.egrant.schedule.slave.compare" scoped-proxy="interfaces" />
+	  <context:component-scan base-package="com.test.example.schedule.master.compare" scoped-proxy="interfaces" />
+	  <context:component-scan base-package="com.test.example.code.compare.dao" scoped-proxy="targetClass" />
+	  <context:component-scan base-package="com.test.example.schedule.slave.compare" scoped-proxy="interfaces" />
 	 
 	 <!--  solr  -->
-	  <context:component-scan base-package="com.iris.egrant.code.solr.extend.similarity" scoped-proxy="interfaces" />
-	  <context:component-scan base-package="com.iris.egrant.code.solr.basics" scoped-proxy="interfaces" />
-	  <context:component-scan base-package="com.iris.egrant.code.solr.query" scoped-proxy="interfaces" />
-	  <context:component-scan base-package="com.iris.egrant.code.solr.document" scoped-proxy="interfaces" />
-	  <context:component-scan base-package="com.iris.egrant.code.solr.dao" scoped-proxy="targetClass" />
+	  <context:component-scan base-package="com.test.example.code.solr.extend.similarity" scoped-proxy="interfaces" />
+	  <context:component-scan base-package="com.test.example.code.solr.basics" scoped-proxy="interfaces" />
+	  <context:component-scan base-package="com.test.example.code.solr.query" scoped-proxy="interfaces" />
+	  <context:component-scan base-package="com.test.example.code.solr.document" scoped-proxy="interfaces" />
+	  <context:component-scan base-package="com.test.example.code.solr.dao" scoped-proxy="targetClass" />
 	   
 	   <!--  util -->
-	  <context:component-scan base-package="com.iris.egrant.core.utils" scoped-proxy="targetClass" />
+	  <context:component-scan base-package="com.test.example.core.utils" scoped-proxy="targetClass" />
 
-	  <context:component-scan base-package="com.iris.egrant.code.forminit.service" scoped-proxy="interfaces" />
-	  <context:component-scan base-package="com.iris.egrant.code.forminit.dao" scoped-proxy="targetClass" />
+	  <context:component-scan base-package="com.test.example.code.forminit.service" scoped-proxy="interfaces" />
+	  <context:component-scan base-package="com.test.example.code.forminit.dao" scoped-proxy="targetClass" />
 	  
-	  <context:component-scan base-package="com.iris.egrant.code.grantsetting.dao" scoped-proxy="targetClass" />
+	  <context:component-scan base-package="com.test.example.code.grantsetting.dao" scoped-proxy="targetClass" />
 	  
-	  <context:component-scan base-package="com.iris.egrant.code.project.dao" scoped-proxy="targetClass" />
+	  <context:component-scan base-package="com.test.example.code.project.dao" scoped-proxy="targetClass" />
 	  
-	  <context:component-scan base-package="com.iris.egrant.code.proposal.service" scoped-proxy="interfaces" />
-	  <context:component-scan base-package="com.iris.egrant.code.proposal.dao" scoped-proxy="targetClass" />
+	  <context:component-scan base-package="com.test.example.code.proposal.service" scoped-proxy="interfaces" />
+	  <context:component-scan base-package="com.test.example.code.proposal.dao" scoped-proxy="targetClass" />
 	  
-	  <context:component-scan base-package="com.iris.egrant.code.rule.service" scoped-proxy="interfaces" />
-	  <context:component-scan base-package="com.iris.egrant.code.rule.dao" scoped-proxy="targetClass" />
+	  <context:component-scan base-package="com.test.example.code.rule.service" scoped-proxy="interfaces" />
+	  <context:component-scan base-package="com.test.example.code.rule.dao" scoped-proxy="targetClass" />
 	  
-	  <context:component-scan base-package="com.iris.egrant.code.system.dao" scoped-proxy="targetClass" />
+	  <context:component-scan base-package="com.test.example.code.system.dao" scoped-proxy="targetClass" />
 	  
-	  <context:component-scan base-package="com.iris.egrant.code.wf.compnent" scoped-proxy="targetClass" />
-	  <context:component-scan base-package="com.iris.egrant.code.wf.dao" scoped-proxy="targetClass" />
+	  <context:component-scan base-package="com.test.example.code.wf.compnent" scoped-proxy="targetClass" />
+	  <context:component-scan base-package="com.test.example.code.wf.dao" scoped-proxy="targetClass" />
 	  
-	  <context:component-scan base-package="com.iris.egrant.schedule.master.rule" scoped-proxy="interfaces" />
-	  <context:component-scan base-package="com.iris.egrant.schedule.slave.rule" scoped-proxy="interfaces" />
+	  <context:component-scan base-package="com.test.example.schedule.master.rule" scoped-proxy="interfaces" />
+	  <context:component-scan base-package="com.test.example.schedule.slave.rule" scoped-proxy="interfaces" />
 	  
 </beans>

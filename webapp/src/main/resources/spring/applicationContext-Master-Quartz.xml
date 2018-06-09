@@ -20,7 +20,7 @@
 	<!-- 比对 -->
 	<bean id="cpGlobalJobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
 		<property name="jobClass">
-			<value>com.iris.egrant.schedule.master.compare.CompareSchedulerManager</value>
+			<value>com.test.example.schedule.master.compare.CompareSchedulerManager</value>
 		</property>
 		<property name="name" value="cpGlobalJobDetail"></property>
 		<property name="durability" value="true" />
@@ -35,7 +35,7 @@
 	<!-- 规则 -->
 	<bean id="proposalRuleCheckJobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
 		<property name="jobClass">
-			<value>com.iris.egrant.schedule.master.rule.ProposalRuleCheckScheduleManager</value>
+			<value>com.test.example.schedule.master.rule.ProposalRuleCheckScheduleManager</value>
 		</property>
 		<property name="name" value="proposalRuleCheckJobDetail"></property>
 		<property name="durability" value="true" />

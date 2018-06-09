@@ -41,15 +41,15 @@
 	  </property> 
  		<property name="packagesToScan">
 			<list>
-				<value>com.iris.egrant.core.cp.model</value> 
-				<value>com.iris.egrant.code.compare.model</value> 
-				<value>com.iris.egrant.code.rule.model</value> 
-				<value>com.iris.egrant.code.forminit.model</value> 
-				<value>com.iris.egrant.code.grantsetting.model</value> 
-				<value>com.iris.egrant.code.project.model</value> 
-				<value>com.iris.egrant.code.rule.model</value> 
-				<value>com.iris.egrant.code.system.model</value> 
-				<value>com.iris.egrant.code.wf.model</value> 
+				<value>com.test.example.core.cp.model</value>
+				<value>com.test.example.code.compare.model</value>
+				<value>com.test.example.code.rule.model</value>
+				<value>com.test.example.code.forminit.model</value>
+				<value>com.test.example.code.grantsetting.model</value>
+				<value>com.test.example.code.project.model</value>
+				<value>com.test.example.code.rule.model</value>
+				<value>com.test.example.code.system.model</value>
+				<value>com.test.example.code.wf.model</value>
 			</list>
 		</property> 
 	</bean>
