@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" version="4">
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration />
@@ -14,12 +14,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="egrant.cp.core" />
-    <orderEntry type="library" name="Maven: net.sourceforge:pinyin4j:2.5.0" level="project" />
-    <orderEntry type="library" name="Maven: com.oracle:xdb:11.0.0.7" level="project" />
-    <orderEntry type="library" name="Maven: com.oracle:xmlparserv2:11.2.0.1-iris" level="project" />
-    <orderEntry type="library" name="Maven: com.oracle:ojdbc6:11.1.0.7.0" level="project" />
-    <orderEntry type="library" name="Maven: com.oracle:orai18n-mapping:11.2.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.solr:solr-core:6.4.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.lucene:lucene-analyzers-common:6.4.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.lucene:lucene-analyzers-kuromoji:6.4.1" level="project" />
@@ -91,6 +85,7 @@
     <orderEntry type="library" name="Maven: org.restlet.jee:org.restlet:2.3.0" level="project" />
     <orderEntry type="library" name="Maven: org.restlet.jee:org.restlet.ext.servlet:2.3.0" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.7" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge:pinyin4j:2.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi:3.8" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi-ooxml:3.8" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi-ooxml-schemas:3.8" level="project" />
@@ -107,6 +102,10 @@
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
     <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.8.3" level="project" />
     <orderEntry type="library" name="Maven: c3p0:c3p0:0.9.1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.oracle:xdb:11.0.0.7" level="project" />
+    <orderEntry type="library" name="Maven: com.oracle:xmlparserv2:11.2.0.1-test" level="project" />
+    <orderEntry type="library" name="Maven: com.oracle:ojdbc6:11.1.0.7.0" level="project" />
+    <orderEntry type="library" name="Maven: com.oracle:orai18n-mapping:11.2.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-redis:1.6.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.1.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: redis.clients:jedis:2.9.0" level="project" />

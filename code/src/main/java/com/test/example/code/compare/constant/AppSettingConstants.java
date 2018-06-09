@@ -3,7 +3,7 @@ package com.test.example.code.compare.constant;
 /**
  * 系统配置常量.
  * 
- * @author liqinghua
+ * @author cg
  * 
  */
 public interface AppSettingConstants {

@@ -10,7 +10,7 @@ import javax.persistence.Table;
 /**
  * 系统配置信息.
  * 
- * @author liqinghua
+ * @author cg
  * 
  */
 @Entity

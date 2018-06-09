@@ -9,7 +9,7 @@ import com.test.example.core.dao.hibernate.SimpleHibernateDao;
 /**
  * 系统配置信息.
  * 
- * @author liqinghua
+ * @author cg
  * 
  */
 @Repository

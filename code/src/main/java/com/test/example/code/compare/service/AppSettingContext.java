@@ -9,7 +9,7 @@ import com.test.example.core.utils.testStringUtils;
 /**
  * 服务配置信息，必须在服务器已经启动完成才可使用.
  * 
- * @author liqinghua
+ * @author cg
  * 
  */
 public class AppSettingContext implements InitializingBean {

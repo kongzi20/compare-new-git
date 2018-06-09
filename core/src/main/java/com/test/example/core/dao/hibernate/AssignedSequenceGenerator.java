@@ -21,7 +21,7 @@ import org.hibernate.id.SequenceGenerator;
  * 有些数据可能需要指定ID，有些需要同步序列自动生成ID，因此做法是如果已经指定了ID，则不生成新的ID.
  * </pre>
  * 
- * @author liqinghua
+ * @author cg
  */
 public class AssignedSequenceGenerator extends SequenceGenerator implements PersistentIdentifierGenerator, Configurable {
 

@@ -25,7 +25,7 @@ public class UserRoleDao extends SimpleHibernateDao<UserRole, UserRoleId> {
 	@SuppressWarnings("unchecked")
 	public List<UserRole> getSysAdministrator() {
 
-		// TODO:请不要直接写死为4，建议使用常量替代(修改好了把TODO删除)lqh add.
+		// TODO:请不要直接写死为4，建议使用常量替代(修改好了把TODO删除)cg add.
 		String ql = "from UserRole where id.rolId = 4";
 		List<UserRole> users = super.createQuery(ql).list();
 		return users;

@@ -20,7 +20,7 @@ import com.test.example.core.utils.DateUtils;
 /**
  * 系统配置信息.
  * 
- * @author liqinghua
+ * @author cg
  * 
  */
 @Service("appSettingService")

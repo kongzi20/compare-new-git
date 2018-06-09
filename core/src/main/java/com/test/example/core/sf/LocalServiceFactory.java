@@ -11,7 +11,7 @@ import org.springframework.beans.factory.BeanFactoryAware;
  * 
  * 本地服务工厂.
  * 
- * @author liqinghua
+ * @author cg
  */
 public class LocalServiceFactory implements Serializable, ServiceFactory, BeanFactoryAware {
 

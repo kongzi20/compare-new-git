@@ -257,7 +257,7 @@ public class PersonDao extends SimpleHibernateDao<Person, Long> {
 	 * @param psnCode
 	 * @return
 	 */
-	// TODO：这个代码是否应该移植到Person4SyncDao中去，尽量代码能够清晰.(修改好了把TODO删除)lqh add.
+	// TODO：这个代码是否应该移植到Person4SyncDao中去，尽量代码能够清晰.(修改好了把TODO删除)cg add.
 	public Person4Sync getPerson4Sync(Long psnCode) {
 		Object obj = this.getSession().get(Person4Sync.class, psnCode);
 		return obj == null ? null : (Person4Sync) obj;
@@ -269,7 +269,7 @@ public class PersonDao extends SimpleHibernateDao<Person, Long> {
 	 * @param psnCode
 	 * @return
 	 */
-	// TODO：这个代码是否应该移植到Person4SyncDao中去，尽量代码能够清晰.(修改好了把TODO删除)lqh add.
+	// TODO：这个代码是否应该移植到Person4SyncDao中去，尽量代码能够清晰.(修改好了把TODO删除)cg add.
 	public PersonSubInfo4Sync getPersonSubInfo4Sync(Long psnCode) {
 		Object obj = this.getSession().get(PersonSubInfo4Sync.class, psnCode);
 		return obj == null ? null : (PersonSubInfo4Sync) obj;

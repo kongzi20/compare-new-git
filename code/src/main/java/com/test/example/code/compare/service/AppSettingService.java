@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 系统配置信息.
  * 
- * @author liqinghua
+ * @author cg
  * 
  */
  

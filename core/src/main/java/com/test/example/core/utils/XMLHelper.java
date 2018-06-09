@@ -161,7 +161,7 @@ public class XMLHelper {
 	}
 
 	/**
-	 * TODO:请添加注释(修改好了把TODO删除)lqh add.
+	 * TODO:请添加注释(修改好了把TODO删除)cg add.
 	 * 
 	 * @param docsrc
 	 * @param parentPath
@@ -899,7 +899,7 @@ public class XMLHelper {
 	}
 
 	/**
-	 * TODO:请添加注释(修改好了把TODO删除)lqh add.
+	 * TODO:请添加注释(修改好了把TODO删除)cg add.
 	 * 
 	 * @param destDoc
 	 * @param srcElement
@@ -935,7 +935,7 @@ public class XMLHelper {
 	}
 
 	/**
-	 * TODO:请添加注释(修改好了把TODO删除)lqh add.
+	 * TODO:请添加注释(修改好了把TODO删除)cg add.
 	 * 
 	 * @param destDoc
 	 * @param srcElement

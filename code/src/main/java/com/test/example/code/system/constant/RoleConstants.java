@@ -1,7 +1,7 @@
 package com.test.example.code.system.constant;
 
 /**
- * @author liqinghua
+ * @author cg
  */
 public interface RoleConstants {
 

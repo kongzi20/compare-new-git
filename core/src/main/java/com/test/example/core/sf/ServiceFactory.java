@@ -6,7 +6,7 @@ import java.io.Serializable;
  * 服务工厂接口.
  * 
  * 
- * @author liqinghua
+ * @author cg
  */
 public interface ServiceFactory extends Serializable {
 
