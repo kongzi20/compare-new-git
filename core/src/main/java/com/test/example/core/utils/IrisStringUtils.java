@@ -57,7 +57,7 @@ import com.test.example.core.exception.ServiceException;
  * @see org.apache.commons.lang.StringUtils
  */
 @SuppressWarnings("unchecked")
-public class IrisStringUtils {
+public class testStringUtils {
 
 	public static final String PASSWOARD = "[[a-z]|[A-Z]|[0-9]]*";
 
@@ -183,7 +183,7 @@ public class IrisStringUtils {
 		while (m.find()) {
 			key = m.group().toLowerCase();
 			paramKey = key.substring(2, key.length() - 2);// 去掉[@ @]
-			str = IrisStringUtils.regexReplaceString(str, "\\[@" + paramKey + "@\\]", paraMap.get(paramKey));
+			str = testStringUtils.regexReplaceString(str, "\\[@" + paramKey + "@\\]", paraMap.get(paramKey));
 		}
 		return str;
 	}
@@ -1148,7 +1148,7 @@ public class IrisStringUtils {
 	public static String[] splitByPattern(String str, String pattern) {
 		Assert.notNull(pattern);
 
-		if (IrisStringUtils.hasLength(str)) {
+		if (testStringUtils.hasLength(str)) {
 			Pattern p = Pattern.compile(pattern);
 			return p.split(str);
 		} else {
@@ -1443,7 +1443,7 @@ public class IrisStringUtils {
 
 	public static Properties toProperties(String str, String split) {
 		Properties props = new Properties();
-		if (!IrisStringUtils.hasLength(str)) {
+		if (!testStringUtils.hasLength(str)) {
 			return props;
 		}
 		String[] lines = str.split(split);
@@ -1451,7 +1451,7 @@ public class IrisStringUtils {
 			if (line == null) {
 				return null;
 			}
-			line = IrisStringUtils.trimLeadingWhitespace(line);
+			line = testStringUtils.trimLeadingWhitespace(line);
 			if (line.length() > 0) {
 				char firstChar = line.charAt(0);
 				if (firstChar != '#' && firstChar != '!') {
@@ -1461,8 +1461,8 @@ public class IrisStringUtils {
 					}
 					String key = separatorIndex != -1 ? line.substring(0, separatorIndex) : line;
 					String value = separatorIndex != -1 ? line.substring(separatorIndex + 1) : "";
-					key = IrisStringUtils.trimTrailingWhitespace(key);
-					value = IrisStringUtils.trimLeadingWhitespace(value);
+					key = testStringUtils.trimTrailingWhitespace(key);
+					value = testStringUtils.trimLeadingWhitespace(value);
 					props.put(key, value);
 				}
 			}
@@ -1480,7 +1480,7 @@ public class IrisStringUtils {
 	/**
 	 * Constructor for StringUtils.
 	 */
-	public IrisStringUtils() {
+	public testStringUtils() {
 		super();
 	}
 
@@ -1522,7 +1522,7 @@ public class IrisStringUtils {
 	public static String replaceRN(String strSource) {
 		char c1 = 10;
 		char c2 = 13;
-		String result = IrisStringUtils.replace(strSource, String.valueOf(c2) + String.valueOf(c1), "&#13;&#10;");
+		String result = testStringUtils.replace(strSource, String.valueOf(c2) + String.valueOf(c1), "&#13;&#10;");
 		return result;
 	}
 
@@ -2133,7 +2133,7 @@ public class IrisStringUtils {
 		while (m.find()) {
 			key = m.group().toLowerCase();
 			paramKey = key.substring(2, key.length() - 2);// 去掉[@ @]
-			content = IrisStringUtils.regexReplaceString(content, "\\[@" + paramKey + "@\\]", "?");
+			content = testStringUtils.regexReplaceString(content, "\\[@" + paramKey + "@\\]", "?");
 			params.add(map.get(paramKey));
 		}
 		return content;
@@ -2485,8 +2485,8 @@ public class IrisStringUtils {
 		}*/
 		String sourceContent = "无锡aBc社会发展科技支撑项目资助新药和创新医疗器械技术研发项目";
 		String targetContent = "无锡Abｃ社会 发展科 技支撑项目资助新药和创新医疗器械技术研发项目";
-		String st = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(sourceContent.toUpperCase()));//全角转半角，统一大写
-		String tt = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(targetContent.toUpperCase()));
+		String st = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(sourceContent.toUpperCase()));//全角转半角，统一大写
+		String tt = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(targetContent.toUpperCase()));
 		
 		List<String> same = SimilarityUtils.getSameList(st, tt, 0, null, true);
 		String fontColor = "#FF0000";
@@ -2514,7 +2514,7 @@ public class IrisStringUtils {
 		while (m.find()) {
 			key = m.group();
 			paramKey = key.substring(2, key.length() - 2);// 去掉[@ @]
-			content = IrisStringUtils.regexReplaceString(content, "\\[@" + paramKey + "@\\]", "?");
+			content = testStringUtils.regexReplaceString(content, "\\[@" + paramKey + "@\\]", "?");
 			params.add(map.get(paramKey));
 		}
 		return content;
@@ -2537,7 +2537,7 @@ public class IrisStringUtils {
         if (str == null||"".equals(str)) {
             return defaultValue;
         }
-        if(!IrisStringUtils.isNullOrBlank(str)&&!NumberUtils.isDigits(str)){
+        if(!testStringUtils.isNullOrBlank(str)&&!NumberUtils.isDigits(str)){
         	str=ServiceUtils.decodeFromDes3(str,encryptKey);
 		}
         try {

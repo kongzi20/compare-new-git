@@ -16,7 +16,7 @@ import com.test.example.code.compare.constant.CompareConstants;
 import com.test.example.code.compare.model.ProposalExtend;
 import com.test.example.core.utils.DateFormator;
 import com.test.example.core.utils.DateUtils;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 import com.test.example.core.utils.XMLHelper;
 
  
@@ -78,11 +78,11 @@ public class PsnCompareTemplateServiceImpl extends DataFilterJavaSupport impleme
 		//2.比较数据：证件类型+证件号码
 		for (Element src : sourceList) {
 			String srcCardTypeValue = src.element("basic_info").elementText(CompareConstants.PSN_COMPARE_KEY1).trim();
-			String srcCardCode = IrisStringUtils.full2Half(src.element("basic_info").elementText(CompareConstants.PSN_COMPARE_KEY2)).trim();
+			String srcCardCode = testStringUtils.full2Half(src.element("basic_info").elementText(CompareConstants.PSN_COMPARE_KEY2)).trim();
 			for (Element tge : targetList) {
 				String tgeCardTypeValue = tge.element("basic_info").elementText(CompareConstants.PSN_COMPARE_KEY1).trim();
 				String tgeCardTypeName = tge.element("basic_info").elementText(CompareConstants.PSN_COMPARE_KEY3).trim();
-				String tgeCardCode = IrisStringUtils.full2Half(tge.element("basic_info").elementText(CompareConstants.PSN_COMPARE_KEY2)).trim();
+				String tgeCardCode = testStringUtils.full2Half(tge.element("basic_info").elementText(CompareConstants.PSN_COMPARE_KEY2)).trim();
 				//证件类型为其他以及证件号码为：无、暂无则不参与检查
 				if(("其他".equals(tgeCardTypeName) || "无".equalsIgnoreCase(tgeCardCode) || "暂无".equalsIgnoreCase(tgeCardCode) )) {
 					delList.add(tge);
@@ -129,11 +129,11 @@ public class PsnCompareTemplateServiceImpl extends DataFilterJavaSupport impleme
 		//2.比较数据：设备名称+设备型号
 		for (Element src : sourceList) {
 			String srcCardTypeValue = src.element("basic_info").elementText(CompareConstants.PSN_COMPARE_KEY1).trim();
-			String srcCardCode = IrisStringUtils.full2Half(src.element("basic_info").elementText(CompareConstants.PSN_COMPARE_KEY2)).trim();
+			String srcCardCode = testStringUtils.full2Half(src.element("basic_info").elementText(CompareConstants.PSN_COMPARE_KEY2)).trim();
 			for (Element tge : targetList) {
 				String tgeCardTypeValue = tge.element("basic_info").elementText(CompareConstants.PSN_COMPARE_KEY1).trim();
 				String tgeCardTypeName = tge.element("basic_info").elementText(CompareConstants.PSN_COMPARE_KEY3).trim();
-				String tgeCardCode = IrisStringUtils.full2Half(tge.element("basic_info").elementText(CompareConstants.PSN_COMPARE_KEY2)).trim();
+				String tgeCardCode = testStringUtils.full2Half(tge.element("basic_info").elementText(CompareConstants.PSN_COMPARE_KEY2)).trim();
 				//证件类型为其他以及证件号码为：无、暂无则不参与检查
 				if(("其他".equals(tgeCardTypeName) || "无".equalsIgnoreCase(tgeCardCode) || "暂无".equalsIgnoreCase(tgeCardCode) )) {
 					delList.add(tge);

@@ -21,7 +21,7 @@ import com.test.example.code.grantsetting.model.GrantSetting;
 import com.test.example.code.proposal.service.BaseXmlInitServiceImpl;
 import com.test.example.core.exception.DaoException;
 import com.test.example.core.exception.ServiceException;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 import com.test.example.core.utils.XMLHelper;
 
 /**
@@ -124,9 +124,9 @@ public class InitializeServiceImpl extends BaseXmlInitServiceImpl implements
 				// 替换SQL中参数
 				List<Object> params = new ArrayList<Object>();
 				if (StringUtils.isNotBlank(content)) {
-					content = IrisStringUtils.transSql(content, codes, params);
+					content = testStringUtils.transSql(content, codes, params);
 				}
-				if (IrisStringUtils.isExistParam(content)) {
+				if (testStringUtils.isExistParam(content)) {
 					continue;
 				}
 

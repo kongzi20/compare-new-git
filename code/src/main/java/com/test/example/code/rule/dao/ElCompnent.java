@@ -16,7 +16,7 @@ import com.test.example.code.rule.util.PcheckMessageUtils;
 import com.test.example.core.exception.ServiceException;
 import com.test.example.core.utils.DateFormator;
 import com.test.example.core.utils.DateUtils;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 
 
 
@@ -28,7 +28,7 @@ import com.test.example.core.utils.IrisStringUtils;
 @Component
 public class ElCompnent {
 	public PcheckMessage getElEngRule(ProposalRule pRule, Map<String, Object> param) throws ServiceException {
-		if(IrisStringUtils.isNullOrBlank(pRule.getExpressionDetail())){
+		if(testStringUtils.isNullOrBlank(pRule.getExpressionDetail())){
 			return null;
 		}
 		String el = buildEl(pRule.getExpressionDetail(), param);
@@ -61,7 +61,7 @@ public class ElCompnent {
 	 * @throws ServiceException
 	 */
 	public Boolean getElResult(ProposalRule pRule,Map<String,Object> param) throws ServiceException{
-		if(IrisStringUtils.isNullOrBlank(pRule.getExpressionDetail())){
+		if(testStringUtils.isNullOrBlank(pRule.getExpressionDetail())){
 			return null;
 		}
 		String el = buildEl(pRule.getExpressionDetail(), param);
@@ -97,9 +97,9 @@ public class ElCompnent {
 				key = m.group().toLowerCase();
 				paramKey = key.substring(2, key.length() - 2);// 去掉[@ @]
 				if(param.get(paramKey) == null || !param.containsKey(paramKey)){
-					el = IrisStringUtils.regexReplaceString(el, "\\[@" + paramKey + "@\\]", "-9999999999");
+					el = testStringUtils.regexReplaceString(el, "\\[@" + paramKey + "@\\]", "-9999999999");
 				}else{
-					el = IrisStringUtils.regexReplaceString(el, "\\[@" + paramKey + "@\\]", param.get(paramKey));
+					el = testStringUtils.regexReplaceString(el, "\\[@" + paramKey + "@\\]", param.get(paramKey));
 				}
 			}
 			//计算[@@ @@]中表达式的值

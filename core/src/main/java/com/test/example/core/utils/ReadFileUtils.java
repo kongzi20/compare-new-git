@@ -127,13 +127,13 @@ public class ReadFileUtils {
 	}
 
 	public static void main(String args[]) throws Exception {
-		// String word2003Path="D:\\irisWork\\01-Document\\egrant-product\\08-tools\\irisGrid操作说明.doc";
+		// String word2003Path="D:\\testWork\\01-Document\\example-product\\08-tools\\testGrid操作说明.doc";
 		// // System.out.println(ReadFileUtils.readWord2003(word2003Path));
 
-		// String word2007Path="D:\\irisWork\\01-Document\\egrant-product\\08-tools\\公共组件使用说明.docx";
+		// String word2007Path="D:\\testWork\\01-Document\\example-product\\08-tools\\公共组件使用说明.docx";
 		// // System.out.println(ReadFileUtils.readWord2007(word2007Path));
 
-		String pdfPath = "/home/iris/下载/test.pdf";
+		String pdfPath = "/home/test/下载/test.pdf";
 		// System.out.println(ReadFileUtils.readPdf(pdfPath));
 
 	}

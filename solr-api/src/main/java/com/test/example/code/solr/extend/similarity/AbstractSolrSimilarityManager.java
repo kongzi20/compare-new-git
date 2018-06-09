@@ -18,9 +18,9 @@ import org.apache.solr.common.SolrDocumentList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.test.example.code.solr.util.IrisSolrUtils;
+import com.test.example.code.solr.util.testSolrUtils;
 import com.test.example.core.exception.ServiceException;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
  
 
 public abstract class AbstractSolrSimilarityManager implements SolrSimilarityManager {
@@ -34,14 +34,14 @@ public abstract class AbstractSolrSimilarityManager implements SolrSimilarityMan
 	public List<Map<String, Object>> query(String id ,String content , String type , String systype) throws ServiceException {
 		
 		String fieldName = "content";
-		IrisSolrUtils irisSolrUtils = IrisSolrUtils.getIrisSolrUtilsInstance();    
+		testSolrUtils testSolrUtils = testSolrUtils.gettestSolrUtilsInstance();
 		SolrQuery query = new SolrQuery();  
 		
 		List<Map<String,Object>> resultList = new ArrayList<Map<String,Object>>();
 		//查询参数
 		StringBuilder params = new StringBuilder(fieldName+":" + content);  
 		params.append(" AND type:" + type);  
-		if(!IrisStringUtils.isNullOrBlank(systype))
+		if(!testStringUtils.isNullOrBlank(systype))
 		  params.append(" AND systype:" + systype);  
         query.setQuery(params.toString()); 
         //排除自身
@@ -75,7 +75,7 @@ public abstract class AbstractSolrSimilarityManager implements SolrSimilarityMan
         //获取查询结果
         QueryResponse response;
 		try {
-			response = irisSolrUtils.getSolrClientLocal().query(query,METHOD.POST);
+			response = testSolrUtils.getSolrClientLocal().query(query,METHOD.POST);
 		} catch (SolrServerException e) {
 			throw new ServiceException("solr[Server]查询失败id="+id+"AND type="+type+e.getMessage());
 		} catch (IOException e) {

@@ -1,17 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.iris</groupId>
-  <artifactId>egrant.cp.parent</artifactId>
+  <groupId>com.test</groupId>
+  <artifactId>example.cp.parent</artifactId>
   <version>1.0.0</version>
   <packaging>pom</packaging>
-  <name>egrant.cp.parent pom</name>
+  <name>example.cp.parent pom</name>
   
   <!-- maven 仓库 -->
 	<repositories>
 		<repository>
 			<id>nexus</id>
 			<name>local nexus server</name>
-			<url>http://nexus.oa.irissz.com:8081/nexus/content/groups/public</url>
+			<url>http://nexus.oa.testsz.com:8081/nexus/content/groups/public</url>
 			<snapshots>
 				<enabled>true</enabled>
 			</snapshots>
@@ -26,9 +26,9 @@
 	<!-- 配置远程发布到私服，mvn deploy -->
 	<distributionManagement>
 		<repository>
-			<id>iris egrantlib</id>
+			<id>test examplelib</id>
 			<name>Nexus Release Repository</name>
-			<url>http://nexus.oa.irissz.com:8081/nexus/content/repositories/iris-egrantlib</url>
+			<url>http://nexus.oa.testsz.com:8081/nexus/content/repositories/test-examplelib</url>
 		</repository> 
 	</distributionManagement>
 
@@ -37,7 +37,7 @@
 		<pluginRepository>
 			<id>nexus</id>
 			<name>local nexus server</name>
-			<url>http://nexus.oa.irissz.com:8081/nexus/content/groups/public</url>
+			<url>http://nexus.oa.testsz.com:8081/nexus/content/groups/public</url>
 		</pluginRepository>
 	</pluginRepositories>
 
@@ -180,7 +180,7 @@
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>xmlparserv2</artifactId>
-			<version>11.2.0.1-iris</version>
+			<version>11.2.0.1-test</version>
 		</dependency>
 		<dependency>
 				<groupId>com.oracle</groupId>
@@ -472,8 +472,8 @@
 				<configuration>
 					<archive>
 						<manifestEntries>
-							<Extension-Name>egrant-compare-new</Extension-Name>
-							<Weblogic-Application-Version>egrant-compare-new ${builder.version}</Weblogic-Application-Version>
+							<Extension-Name>example-compare-new</Extension-Name>
+							<Weblogic-Application-Version>example-compare-new ${builder.version}</Weblogic-Application-Version>
 						</manifestEntries>
 					</archive>
 					<outputDirectory>../pubication/${builder.version}</outputDirectory>

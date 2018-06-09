@@ -15,7 +15,7 @@ import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import com.test.example.code.solr.model.SolrItem;
 import com.test.example.core.cp.model.CompareListInfo;
 
-public class IrisSolrUtils {
+public class testSolrUtils {
 
 	//指定solr服务器的地址  
     private String SOLR_URL;  
@@ -32,8 +32,8 @@ public class IrisSolrUtils {
     /**
      * 单例初始化
      */
-    private static IrisSolrUtils instance;
-    private IrisSolrUtils (){
+    private static testSolrUtils instance;
+    private testSolrUtils (){
     	
     	String runEnv = System.getProperty("spring.profiles.active", "run");
 		InputStream inStream = this.getClass().getResourceAsStream("/config/system."+runEnv+".properties");
@@ -45,12 +45,12 @@ public class IrisSolrUtils {
 		}
 		SOLR_URL = prps.getProperty("solr_url");
     	
-    	//SOLR_URL = "http://dev.egrant3.egrant.cn/egrantsolr/";
+    	//SOLR_URL = "http://dev.example3.example.cn/examplesolr/";
     	
     }  
-    public static IrisSolrUtils getIrisSolrUtilsInstance() {  
+    public static testSolrUtils gettestSolrUtilsInstance() {
 		if (instance == null) {  
-		    instance = new IrisSolrUtils();
+		    instance = new testSolrUtils();
 		}
 		return instance; 
     }
@@ -183,8 +183,8 @@ public class IrisSolrUtils {
      */
     public static void main(String[] args) throws Exception {
     	
-    	//IrisSolrUtils irisSolrUtils = IrisSolrUtils.getIrisSolrUtilsInstance();
-    	//irisSolrUtils.toRun();
+    	//testSolrUtils testSolrUtils = testSolrUtils.gettestSolrUtilsInstance();
+    	//testSolrUtils.toRun();
     	
     	String testStr = "*.2?5+2$^5["
     			+ " ](12 ){}|12";
@@ -237,26 +237,26 @@ public class IrisSolrUtils {
 	    	compareListInfo.setContent("你是我的眼");
 	    	compareListInfo.setType(1);
 	    	
-	    	IrisSolrUtils irisSolrUtils = IrisSolrUtils.getIrisSolrUtilsInstance();
+	    	testSolrUtils testSolrUtils = testSolrUtils.gettestSolrUtilsInstance();
 	    	try {
 	    		
-	    		irisSolrUtils.InitSolrClientLocal("solr_cores_executableReport");
+	    		testSolrUtils.InitSolrClientLocal("solr_cores_executableReport");
 		    	
 		    	
-		    	irisSolrUtils.delDocumentBean(ObjectUtils.toString(compareListInfo.getId()),ObjectUtils.toString(compareListInfo.getType()));
+		    	testSolrUtils.delDocumentBean(ObjectUtils.toString(compareListInfo.getId()),ObjectUtils.toString(compareListInfo.getType()));
 		    	SolrItem solrItem = new SolrItem();;
 				solrItem.setId(ObjectUtils.toString(compareListInfo.getId()));
 				solrItem.setContent(compareListInfo.getContent());
 				solrItem.setType(ObjectUtils.toString(compareListInfo.getType()));
 				solrItem.setSystype("wxfms");
 				
-				irisSolrUtils.addDocumentBean(solrItem);
+				testSolrUtils.addDocumentBean(solrItem);
 	    		
 	    	} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
 				try {
-					irisSolrUtils.CloseSolrClientLocal();
+					testSolrUtils.CloseSolrClientLocal();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

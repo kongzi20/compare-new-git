@@ -12,7 +12,7 @@ import org.springframework.util.StringUtils;
 
 import com.test.example.code.compare.constant.CompareConstants;
 import com.test.example.code.compare.model.ProposalExtend;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 import com.test.example.core.utils.SimilarityUtils;
 
  
@@ -51,8 +51,8 @@ public class PrpNameCompareTemplateServiceImpl  extends DataFilterSolrSupport im
 	@Override
 	public Double compareContent(String sourceContent, String targetContent) {
 		Double similarity = 0.0;
-		String st = IrisStringUtils.full2Half(StringUtils.trimAllWhitespace(sourceContent.toUpperCase()));//全角转半角，统一大写
-		String tt = IrisStringUtils.full2Half(StringUtils.trimAllWhitespace(targetContent.toUpperCase()));
+		String st = testStringUtils.full2Half(StringUtils.trimAllWhitespace(sourceContent.toUpperCase()));//全角转半角，统一大写
+		String tt = testStringUtils.full2Half(StringUtils.trimAllWhitespace(targetContent.toUpperCase()));
 		
 		// System.out.println(DateUtils.now(DateFormator.YEAR_MONTH_DAY_HH_MM_SS)+"=========start:项目名称相似度比对==========");
 		similarity = SimilarityUtils.calculateSimilaryByClause(st, tt, 0, null, true);
@@ -67,8 +67,8 @@ public class PrpNameCompareTemplateServiceImpl  extends DataFilterSolrSupport im
 	public Map<String, String> renderDiffer(String sourceContent, String targetContent) {
 		Map<String, String> map = new HashMap<String, String>();
 
-		String st = IrisStringUtils.full2Half(StringUtils.trimAllWhitespace(sourceContent.toUpperCase()));//全角转半角，统一大写
-		String tt = IrisStringUtils.full2Half(StringUtils.trimAllWhitespace(targetContent.toUpperCase()));
+		String st = testStringUtils.full2Half(StringUtils.trimAllWhitespace(sourceContent.toUpperCase()));//全角转半角，统一大写
+		String tt = testStringUtils.full2Half(StringUtils.trimAllWhitespace(targetContent.toUpperCase()));
 		
 		List<String> same = SimilarityUtils.getSameList(st, tt, 0, null, true);
 		String fontColor = "#FF0000";

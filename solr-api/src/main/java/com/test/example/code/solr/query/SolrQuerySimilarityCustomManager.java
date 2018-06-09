@@ -18,7 +18,7 @@ import com.test.example.code.solr.extend.similarity.SolrSimilarityManager;
 import com.test.example.core.cp.model.CompareListInfo;
 import com.test.example.core.exception.ServiceException;
 import com.test.example.core.sf.ServiceFactory;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
  
 @Service("solrQuerySimilarityCustomManager")
 @Transactional(rollbackFor = Exception.class)
@@ -53,7 +53,7 @@ public class SolrQuerySimilarityCustomManager implements SolrQuerySimilarityMana
 			
 			serviceFactory.getService("solrBasicsCustomManager",SolrBasicsManager.class).InitSolrClient(solrCore);
 			
-			String content = IrisStringUtils.replaceRegex(ObjectUtils.toString(compareListInfo.getContent()));
+			String content = testStringUtils.replaceRegex(ObjectUtils.toString(compareListInfo.getContent()));
 			//出现因为字符长度过大搜索出问题 就修改指定的collection/conf中的solrconfig.xml文件,搜索<maxBooleanClauses>1024</maxBooleanClauses>字段,1024根据实际情况改大一点
 			
 			if(StringUtils.isBlank(content)){ // 空字符串 不查询

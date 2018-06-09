@@ -19,12 +19,12 @@ public interface AppSettingConstants {
 	String BU_CACHE_ENABLED = "bu_cache_enabled";
 
 	/**
-	 * 是否启用isis同步数据到egrant的任务.
+	 * 是否启用isis同步数据到example的任务.
 	 */
 	String SYNCDATA_I2E_ENABLED = "syncdata_i2e_enabled";
 
 	/**
-	 * 是否启用egrant同步数据到isis的任务.
+	 * 是否启用example同步数据到isis的任务.
 	 */
 	String SYNCDATA_E2I_ENABLED = "syncdata_e2i_enabled";
 

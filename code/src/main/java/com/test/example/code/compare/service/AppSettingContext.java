@@ -3,7 +3,7 @@ package com.test.example.code.compare.service;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 
  
 /**
@@ -60,7 +60,7 @@ public class AppSettingContext implements InitializingBean {
 	 * @param value
 	 */
 	public static void setValue(String key, String value) {
-		if (IrisStringUtils.isNullOrBlank(key) || IrisStringUtils.isNullOrBlank(value)) {
+		if (testStringUtils.isNullOrBlank(key) || testStringUtils.isNullOrBlank(value)) {
 			return;
 		}
 		appSettingServiceStatic.setValue(key, value);

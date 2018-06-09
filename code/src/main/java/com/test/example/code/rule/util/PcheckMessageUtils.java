@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.lang.StringUtils;
 
 import com.test.example.code.rule.model.PcheckMessage;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 
 public class PcheckMessageUtils {
 
@@ -43,7 +43,7 @@ public class PcheckMessageUtils {
 		         String rpparam = matcher.group().toLowerCase();
 		         String paramName = rpparam.substring(2, rpparam.length() - 2);// 去掉[@ @]
 				if (param.containsKey(paramName)) {
-					msg =  IrisStringUtils
+					msg =  testStringUtils
 							.regexReplaceString(msg, "\\[@" + paramName + "@\\]", "" + param.get(paramName) + "");
 				}
 			}

@@ -16,10 +16,10 @@ import org.springframework.transaction.annotation.Transactional;
 import com.test.example.code.solr.constant.TypeConstants;
 import com.test.example.code.solr.dao.SolrDocumentJDBCDao;
 import com.test.example.code.solr.model.SolrItem;
-import com.test.example.code.solr.util.IrisSolrUtils;
+import com.test.example.code.solr.util.testSolrUtils;
 import com.test.example.core.cp.model.CompareListInfo;
 import com.test.example.core.exception.ServiceException;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 
 @Service("solrDocumentCustomSimilarityManager")
 @Transactional(rollbackFor = Exception.class)
@@ -52,9 +52,9 @@ public class SolrDocumentCustomSimilarityManager implements SolrDocumentSimilari
 	
 	private void addAllDocumentSingleDimensionBeans(String solrCore, String type, String dataType, String sysType) throws ServiceException{
 		
-		IrisSolrUtils irisSolrUtils = IrisSolrUtils.getIrisSolrUtilsInstance();
+		testSolrUtils testSolrUtils = testSolrUtils.gettestSolrUtilsInstance();
         try {
-			irisSolrUtils.InitSolrClientLocal(solrCore);
+			testSolrUtils.InitSolrClientLocal(solrCore);
 		} catch (Exception e) {
 			throw new ServiceException("solr客户端打开失败solrCore="+solrCore+e.getMessage());
 		}
@@ -74,7 +74,7 @@ public class SolrDocumentCustomSimilarityManager implements SolrDocumentSimilari
 				solrItem = new SolrItem();
 				for(Map<String, Object> item : itemList){
 					
-					String content = IrisStringUtils.replaceRegex(ObjectUtils.toString(item.get("content")));
+					String content = testStringUtils.replaceRegex(ObjectUtils.toString(item.get("content")));
 					solrItem.setId(idStr);
 					solrItem.setContent(content);
 					solrItem.setSystype(sysType);
@@ -84,7 +84,7 @@ public class SolrDocumentCustomSimilarityManager implements SolrDocumentSimilari
 				
 				solrItemList.add(solrItem);
 				if(index>=100  || i==objList.size()){
-			    	irisSolrUtils.addDocumentSolrItemBeans(solrItemList);
+			    	testSolrUtils.addDocumentSolrItemBeans(solrItemList);
 			    	solrItemList.clear();
 			    	index = 1;
 				}
@@ -97,7 +97,7 @@ public class SolrDocumentCustomSimilarityManager implements SolrDocumentSimilari
 			throw new ServiceException("solr添加所有索引失败solrCore="+solrCore+e.getMessage());
 		} finally {
 			try {
-				irisSolrUtils.CloseSolrClientLocal();
+				testSolrUtils.CloseSolrClientLocal();
 			} catch (Exception e) {
 				throw new ServiceException("solr客户端关闭失败"+e.getMessage());
 			}
@@ -117,18 +117,18 @@ public class SolrDocumentCustomSimilarityManager implements SolrDocumentSimilari
 			throw new ServiceException("参数dataTypes数组不能为空或者数组长度为0");
 		}
 		
-		IrisSolrUtils irisSolrUtils = IrisSolrUtils.getIrisSolrUtilsInstance();
+		testSolrUtils testSolrUtils = testSolrUtils.gettestSolrUtilsInstance();
 		SolrItem solrItem = null;
 		
 		for(int i=0;i<dataTypes.length;i++){
 			
 			String solrCore = TypeConstants.solrCoresTypeMap.get(dataTypes[i]);
-			if(IrisStringUtils.isNullOrBlank(solrCore)){
+			if(testStringUtils.isNullOrBlank(solrCore)){
 				throw new ServiceException("solr没有该库"+solrCore);
 			}
 			
 			try {
-				irisSolrUtils.InitSolrClientLocal(solrCore);
+				testSolrUtils.InitSolrClientLocal(solrCore);
 			} catch (Exception e) {
 				throw new ServiceException("solr客户端打开失败solrCore="+solrCore+e.getMessage());
 			}
@@ -139,20 +139,20 @@ public class SolrDocumentCustomSimilarityManager implements SolrDocumentSimilari
 				
 				solrItem = new SolrItem();
 					
-				String content = IrisStringUtils.replaceRegex(ObjectUtils.toString(item.get("content")));
+				String content = testStringUtils.replaceRegex(ObjectUtils.toString(item.get("content")));
 				String idStr  =ObjectUtils.toString(item.get("id"));
 				solrItem.setId(idStr);
 				solrItem.setContent(content);
 				solrItem.setSystype(sysType);
 				solrItem.setType(type);
 				
-				irisSolrUtils.addDocumentBean(solrItem);
+				testSolrUtils.addDocumentBean(solrItem);
 			
 			} catch (Exception e) {
 				throw new ServiceException("solr添加索引ID="+keyCode+"AND type="+type+"AND dataType="+solrCore+"失败"+e.getMessage());
 			} finally {
 				try {
-					irisSolrUtils.CloseSolrClientLocal();
+					testSolrUtils.CloseSolrClientLocal();
 				} catch (Exception e) {
 					throw new ServiceException("solr客户端关闭失败"+e.getMessage());
 				}
@@ -181,12 +181,12 @@ public class SolrDocumentCustomSimilarityManager implements SolrDocumentSimilari
 		if(solrCore==null){
 			throw new ServiceException("solr没有该库"+compareListInfo.getDataType());
 		}
-		IrisSolrUtils irisSolrUtils = IrisSolrUtils.getIrisSolrUtilsInstance();
+		testSolrUtils testSolrUtils = testSolrUtils.gettestSolrUtilsInstance();
 		
 		try {
-			irisSolrUtils.InitSolrClientLocal(solrCore);
+			testSolrUtils.InitSolrClientLocal(solrCore);
 			//先删除
-			irisSolrUtils.delDocumentBean(ObjectUtils.toString(compareListInfo.getKeyCode()),ObjectUtils.toString(compareListInfo.getType()));
+			testSolrUtils.delDocumentBean(ObjectUtils.toString(compareListInfo.getKeyCode()),ObjectUtils.toString(compareListInfo.getType()));
 			
 			SolrItem solrItem = new SolrItem();;
 			solrItem.setId(ObjectUtils.toString(compareListInfo.getId()));
@@ -194,13 +194,13 @@ public class SolrDocumentCustomSimilarityManager implements SolrDocumentSimilari
 			solrItem.setType(ObjectUtils.toString(compareListInfo.getType()));
 			solrItem.setSystype(sysType);
 			
-			irisSolrUtils.addDocumentBean(solrItem);
+			testSolrUtils.addDocumentBean(solrItem);
 			
 		} catch (Exception e) {
 			throw new ServiceException("solr添加索引ID="+compareListInfo.getId()+"AND type="+compareListInfo.getType()+"AND dataType="+solrCore+"失败"+e.getMessage());
 		} finally {
 			try {
-				irisSolrUtils.CloseSolrClientLocal();
+				testSolrUtils.CloseSolrClientLocal();
 			} catch (Exception e) {
 				throw new ServiceException("solr客户端关闭失败"+e.getMessage());
 			}
@@ -210,11 +210,11 @@ public class SolrDocumentCustomSimilarityManager implements SolrDocumentSimilari
 	
 	@Override
 	public void delDocumentAll(String solrCore) throws ServiceException {
-		IrisSolrUtils irisSolrUtils = IrisSolrUtils.getIrisSolrUtilsInstance();
+		testSolrUtils testSolrUtils = testSolrUtils.gettestSolrUtilsInstance();
 		try {
-			irisSolrUtils.InitSolrClientLocal(solrCore);
-			irisSolrUtils.delDocumentAll();
-			irisSolrUtils.CloseSolrClientLocal();
+			testSolrUtils.InitSolrClientLocal(solrCore);
+			testSolrUtils.delDocumentAll();
+			testSolrUtils.CloseSolrClientLocal();
 		} catch (Exception e) {
 			throw new ServiceException("solr删除所有索引失败"+e.getMessage());
 		}
@@ -240,23 +240,23 @@ public class SolrDocumentCustomSimilarityManager implements SolrDocumentSimilari
 		}
 		
 		
-		IrisSolrUtils irisSolrUtils = IrisSolrUtils.getIrisSolrUtilsInstance();
+		testSolrUtils testSolrUtils = testSolrUtils.gettestSolrUtilsInstance();
 		
 		for(int i=0;i<dataTypes.length;i++){
 			
 			String solrCore = TypeConstants.solrCoresTypeMap.get(dataTypes[i]);
-			if(IrisStringUtils.isNullOrBlank(solrCore)){
+			if(testStringUtils.isNullOrBlank(solrCore)){
 				throw new ServiceException("solr没有该库"+solrCore);
 			}
 			
 			try {
-				irisSolrUtils.InitSolrClientLocal(TypeConstants.solrCoresTypeMap.get(dataTypes[i]));
-				irisSolrUtils.delDocumentBean(keyCode,type);
+				testSolrUtils.InitSolrClientLocal(TypeConstants.solrCoresTypeMap.get(dataTypes[i]));
+				testSolrUtils.delDocumentBean(keyCode,type);
 			} catch (Exception e) {
 				throw new ServiceException("solr删除索引ID="+keyCode+"AND type="+type+"AND dataType="+solrCore+"失败"+e.getMessage());
 			} finally {
 				try {
-					irisSolrUtils.CloseSolrClientLocal();
+					testSolrUtils.CloseSolrClientLocal();
 				} catch (Exception e) {
 					throw new ServiceException("solr客户端关闭失败"+e.getMessage());
 				}
@@ -275,20 +275,20 @@ public class SolrDocumentCustomSimilarityManager implements SolrDocumentSimilari
 		}
 		
 		String solrCore = TypeConstants.solrCoresTypeMap.get(ObjectUtils.toString(compareListInfo.getDataType()));
-		if(IrisStringUtils.isNullOrBlank(solrCore)){
+		if(testStringUtils.isNullOrBlank(solrCore)){
 			throw new ServiceException("solr没有该库"+compareListInfo.getDataType());
 		}
 		
-		IrisSolrUtils irisSolrUtils = IrisSolrUtils.getIrisSolrUtilsInstance();
+		testSolrUtils testSolrUtils = testSolrUtils.gettestSolrUtilsInstance();
 		
 		try {
-			irisSolrUtils.InitSolrClientLocal(solrCore);
-			irisSolrUtils.delDocumentBean(ObjectUtils.toString(compareListInfo.getId()),ObjectUtils.toString(compareListInfo.getType()));
+			testSolrUtils.InitSolrClientLocal(solrCore);
+			testSolrUtils.delDocumentBean(ObjectUtils.toString(compareListInfo.getId()),ObjectUtils.toString(compareListInfo.getType()));
 		} catch (Exception e) {
 			throw new ServiceException("solr删除索引ID="+compareListInfo.getId()+"AND type="+compareListInfo.getType()+"AND dataType="+solrCore+"失败"+e.getMessage());
 		} finally {
 			try {
-				irisSolrUtils.CloseSolrClientLocal();
+				testSolrUtils.CloseSolrClientLocal();
 			} catch (Exception e) {
 				throw new ServiceException("solr客户端关闭失败"+e.getMessage());
 			}
@@ -299,11 +299,11 @@ public class SolrDocumentCustomSimilarityManager implements SolrDocumentSimilari
 	
 	@Override
 	public void optimize(String solrCore) throws ServiceException {
-		IrisSolrUtils irisSolrUtils = IrisSolrUtils.getIrisSolrUtilsInstance();
+		testSolrUtils testSolrUtils = testSolrUtils.gettestSolrUtilsInstance();
 		try {
-			irisSolrUtils.InitSolrClientLocal(solrCore);
-			irisSolrUtils.optimize();
-			irisSolrUtils.CloseSolrClientLocal();
+			testSolrUtils.InitSolrClientLocal(solrCore);
+			testSolrUtils.optimize();
+			testSolrUtils.CloseSolrClientLocal();
 		} catch (Exception e) {
 			throw new ServiceException("solr索引优化出错"+e.getMessage());
 		}

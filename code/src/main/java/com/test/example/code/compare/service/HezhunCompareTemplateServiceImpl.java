@@ -14,7 +14,7 @@ import com.test.example.code.compare.constant.CompareConstants;
 import com.test.example.code.compare.model.ProposalExtend;
 import com.test.example.core.utils.DateFormator;
 import com.test.example.core.utils.DateUtils;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 import com.test.example.core.utils.XMLHelper;
 
 
@@ -58,12 +58,12 @@ public class HezhunCompareTemplateServiceImpl  extends DataFilterJavaSupport imp
 		//3.组装xml
 		Document newDoc = DocumentHelper.createDocument();
 		Element root = newDoc.addElement("data");
-		root.addElement("org_no").setText(org_no == null ? "" : IrisStringUtils.full2Half(org_no.getText().trim()));//全角转半角
-		root.addElement("type").setText(type == null ? "" : IrisStringUtils.full2Half(type.getText().trim()));
-		root.addElement("date").setText(date == null ? "" : IrisStringUtils.full2Half(date.getText().trim()));
-		root.addElement("department").setText(department == null ? "" : IrisStringUtils.full2Half(department.getText().trim()));
-		root.addElement("no").setText(no == null ? "" : IrisStringUtils.full2Half(no.getText().trim()));
-		root.addElement("number").setText(number == null ? "" : IrisStringUtils.full2Half(number.getText().trim()));
+		root.addElement("org_no").setText(org_no == null ? "" : testStringUtils.full2Half(org_no.getText().trim()));//全角转半角
+		root.addElement("type").setText(type == null ? "" : testStringUtils.full2Half(type.getText().trim()));
+		root.addElement("date").setText(date == null ? "" : testStringUtils.full2Half(date.getText().trim()));
+		root.addElement("department").setText(department == null ? "" : testStringUtils.full2Half(department.getText().trim()));
+		root.addElement("no").setText(no == null ? "" : testStringUtils.full2Half(no.getText().trim()));
+		root.addElement("number").setText(number == null ? "" : testStringUtils.full2Half(number.getText().trim()));
 		
 		content = root.asXML();
 		// System.out.println(content.toString());
@@ -108,7 +108,7 @@ public class HezhunCompareTemplateServiceImpl  extends DataFilterJavaSupport imp
 		String targetNo = getStrFromContent(targetContent,"no").replaceAll(FITER_WORD_REG, "");
 		
 		//文号和编号都是文字不参与比对
-		if(IrisStringUtils.isChar(sourceNo) || IrisStringUtils.isChar(targetNo) || IrisStringUtils.isChar(sourceNumber) || IrisStringUtils.isChar(targetNumber)){
+		if(testStringUtils.isChar(sourceNo) || testStringUtils.isChar(targetNo) || testStringUtils.isChar(sourceNumber) || testStringUtils.isChar(targetNumber)){
 			return similarity;
 		}
 		

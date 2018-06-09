@@ -32,7 +32,7 @@ import com.test.example.code.rule.model.ProposalRuleParam;
 import com.test.example.code.rule.model.RuleTemplate;
 import com.test.example.core.exception.DaoException;
 import com.test.example.core.exception.ServiceException;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 
  
 @Service("proposalRuleService")
@@ -159,7 +159,7 @@ public class ProposalRuleServiceImpl implements ProposalRuleService {
 			key = m.group().toLowerCase();
 			paramKey = key.substring(2, key.length() - 2);// 去掉[@ @]
 			if (param.containsKey(paramKey)) {
-				el = IrisStringUtils.regexReplaceString(el, "\\[@" + paramKey + "@\\]", param.get(paramKey));
+				el = testStringUtils.regexReplaceString(el, "\\[@" + paramKey + "@\\]", param.get(paramKey));
 			}
 		}
 		return el;
@@ -187,7 +187,7 @@ public class ProposalRuleServiceImpl implements ProposalRuleService {
 			} catch (ServiceException e) {
 				e.printStackTrace();
 			}
-			el = IrisStringUtils.regexReplaceString(el, str, elvalue);
+			el = testStringUtils.regexReplaceString(el, str, elvalue);
 		}
 		return "";
 	}
@@ -221,8 +221,8 @@ public class ProposalRuleServiceImpl implements ProposalRuleService {
 			prParam.copyParamTemplateToProposalRuleParam(paramTemp);
 			prParam.setRuleId(rule.getId());
 			if ("1".equals(paramTemp.getParamMode())) {
-				prParam.setUserCustomValue(IrisStringUtils.toString(params.get("expression_" + paramTemp.getId())));
-				prParam.setUserCustomValueName(IrisStringUtils.toString(params.get("valueName_" + paramTemp.getId())));
+				prParam.setUserCustomValue(testStringUtils.toString(params.get("expression_" + paramTemp.getId())));
+				prParam.setUserCustomValueName(testStringUtils.toString(params.get("valueName_" + paramTemp.getId())));
 			}
 			this.proposalRuleParamDao.save(prParam);
 		}

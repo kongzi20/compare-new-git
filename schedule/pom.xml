@@ -1,18 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>egrant.cp.schedule</artifactId>
+  <artifactId>example.cp.schedule</artifactId>
   <packaging>jar</packaging>
-  <name>egrant.cp.schedule jar</name>
+  <name>example.cp.schedule jar</name>
   <parent>
-		<groupId>com.iris</groupId>
-		<artifactId>egrant.cp.parent</artifactId>
+		<groupId>com.test</groupId>
+		<artifactId>example.cp.parent</artifactId>
  		<version>1.0.0</version>
  		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<dependencies>
 		<dependency>
-			 <groupId>com.iris</groupId>
-			 <artifactId>egrant.cp.core</artifactId>
+			 <groupId>com.test</groupId>
+			 <artifactId>example.cp.core</artifactId>
 	 		 <version>1.0.0</version>
  		</dependency>
 	</dependencies>

@@ -23,7 +23,7 @@ import com.test.example.code.wf.model.WfMessage;
 import com.test.example.code.wf.model.WfRule;
 import com.test.example.code.wf.utils.WfMessageUtils;
 import com.test.example.core.exception.ServiceException;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 import com.test.example.core.utils.SqlConverUtils;
 
 /**
@@ -134,7 +134,7 @@ public class WorkflowSqlCompnent {
 		while (m.find()) {
 			key = m.group();
 			paramKey = key.substring(2, key.length() - 2);// 去掉[@ @]
-			sql = IrisStringUtils.regexReplaceString(sql, "\\[@" + paramKey + "@\\]", "?");
+			sql = testStringUtils.regexReplaceString(sql, "\\[@" + paramKey + "@\\]", "?");
 			//如果map中没有值那么给-1
 			sqlParam.add(param.get(paramKey)==null ? "-1":param.get(paramKey));
 

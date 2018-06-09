@@ -46,7 +46,7 @@ public class DateUtils {
 			}
 		}
 		throw new RuntimeException("just support format : "
-				+ IrisStringUtils.collectionToDelimitedString(defaultDateFormatMap.values(), ",") + " - " + time);
+				+ testStringUtils.collectionToDelimitedString(defaultDateFormatMap.values(), ",") + " - " + time);
 	}
 
 	public static String toString(Date date, DateFormator pattern) {
@@ -265,7 +265,7 @@ public class DateUtils {
 
 	public static boolean isDateFormat(String date, String format) {
 		Assert.notNull(date);
-		return IrisStringUtils.isDefinedPattern(date, format);
+		return testStringUtils.isDefinedPattern(date, format);
 	}
 
 	public static Date getNowDate() {

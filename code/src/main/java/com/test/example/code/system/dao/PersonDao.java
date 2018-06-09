@@ -33,7 +33,7 @@ import com.test.example.code.system.model.UserRole;
 import com.test.example.core.dao.hibernate.SimpleHibernateDao;
 import com.test.example.core.exception.DaoException;
 import com.test.example.core.utils.CollectionUtils;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 
 /**
  * 个人信息DAO.
@@ -282,10 +282,10 @@ public class PersonDao extends SimpleHibernateDao<Person, Long> {
 	 */
 	public void setPerson2Reviewer(Long psnCode, Map<String, Object> map) {
 		String sql = "select count(*) from evreviewer where psn_code = ?";
-		String pwd = IrisStringUtils.toString(map.get("encrypt_pdfpass"));
-		String istrain = IrisStringUtils.toString(map.get("istrain"));
-		String issecond = IrisStringUtils.toString(map.get("expert"));
-		String isoversea = IrisStringUtils.toString(map.get("is_overseas_expert"));
+		String pwd = testStringUtils.toString(map.get("encrypt_pdfpass"));
+		String istrain = testStringUtils.toString(map.get("istrain"));
+		String issecond = testStringUtils.toString(map.get("expert"));
+		String isoversea = testStringUtils.toString(map.get("is_overseas_expert"));
 		Object count = this.getSession().createSQLQuery(sql).setLong(0, psnCode).uniqueResult();
 		if (!"0".equals(count.toString())) {
 			sql = "update  evreviewer set pwd=?,istalentpsn=?,issecond=?,isoversea=? where psn_code=?";

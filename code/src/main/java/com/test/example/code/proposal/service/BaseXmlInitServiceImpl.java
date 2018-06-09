@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.test.example.code.forminit.service.BaseXmlNoTransInitService;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 import com.test.example.core.utils.ServiceConstants;
 import com.test.example.core.utils.XMLHelper;
 
@@ -41,7 +41,7 @@ public class BaseXmlInitServiceImpl implements BaseXmlInitService {
 			// 替换SQL中参数
 			List<Object> params = new ArrayList<Object>();
 
-			content = IrisStringUtils.transSql(content, map, params);
+			content = testStringUtils.transSql(content, map, params);
 			List<Map<String, Object>> list = baseXmlNewInit.getRefreshList(content, params);
 			if (list.size() == 1 && !list.get(0).isEmpty()) {
 				String strKeyCode = list.get(0).get("KEYCODE").toString();

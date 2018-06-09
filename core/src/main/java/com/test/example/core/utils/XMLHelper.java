@@ -490,7 +490,7 @@ public class XMLHelper {
 			String value = null;
 			while (it.hasNext()) {
 				key = it.next().toString().toLowerCase();
-				value = IrisStringUtils.filterNull(map.get(key));
+				value = testStringUtils.filterNull(map.get(key));
 				xml.append(pingXML(key, value));
 			}
 			xml.append("/>");
@@ -506,7 +506,7 @@ public class XMLHelper {
 				String value = null;
 				while (it.hasNext()) {
 					key = it.next().toString().toLowerCase();
-					value = IrisStringUtils.filterNull(map.get(key));
+					value = testStringUtils.filterNull(map.get(key));
 					xml.append(pingXML(key, value));
 				}
 				xml.append("/>");
@@ -1040,7 +1040,7 @@ public class XMLHelper {
 	 * @return
 	 */
 	public static String refreshNodeValue(String xmlData, String xmlPath, Object value) {
-		if (IrisStringUtils.isNullOrBlank(xmlData)) {
+		if (testStringUtils.isNullOrBlank(xmlData)) {
 			return xmlData;
 		}
 		Document doc = null;
@@ -1128,16 +1128,16 @@ public class XMLHelper {
 				delList.add(xcb);
 			} else {
 				if (mapDest.get(key) != null && !mapDest.get(key).equals(mapSrc.get(key))) {
-					if (IrisStringUtils.isNullOrBlank(mapDest.get(key))
-							&& !IrisStringUtils.isNullOrBlank(mapSrc.get(key))) {
+					if (testStringUtils.isNullOrBlank(mapDest.get(key))
+							&& !testStringUtils.isNullOrBlank(mapSrc.get(key))) {
 						XmlCompareBean xcb = new XmlCompareBean();
 						xcb.setNowValue(mapSrc.get(key));
 						xcb.setPreValue("");
 						xcb.setXpath(key);
 						addKeys.add(key);
 						addList.add(xcb);
-					} else if (!IrisStringUtils.isNullOrBlank(mapDest.get(key))
-							&& IrisStringUtils.isNullOrBlank(mapSrc.get(key))) {
+					} else if (!testStringUtils.isNullOrBlank(mapDest.get(key))
+							&& testStringUtils.isNullOrBlank(mapSrc.get(key))) {
 						XmlCompareBean xcb = new XmlCompareBean();
 						xcb.setPreValue(mapDest.get(key));
 						xcb.setNowValue("");
@@ -1264,16 +1264,16 @@ public class XMLHelper {
 				 */
 
 				if (mapDest.get(key) != null && !mapDest.get(key).equals(mapSrc.get(key))) {
-					if (IrisStringUtils.isNullOrBlank(mapDest.get(key))
-							&& !IrisStringUtils.isNullOrBlank(mapSrc.get(key))) {
+					if (testStringUtils.isNullOrBlank(mapDest.get(key))
+							&& !testStringUtils.isNullOrBlank(mapSrc.get(key))) {
 						XmlCompareBean xcb = new XmlCompareBean();
 						xcb.setNowValue(wrapChangedValue(mapSrc, mapDest, key, 0));
 						xcb.setPreValue("");
 						xcb.setXpath(key);
 						addKeys.add(key);
 						addList.add(xcb);
-					} else if (!IrisStringUtils.isNullOrBlank(mapDest.get(key))
-							&& IrisStringUtils.isNullOrBlank(mapSrc.get(key))) {
+					} else if (!testStringUtils.isNullOrBlank(mapDest.get(key))
+							&& testStringUtils.isNullOrBlank(mapSrc.get(key))) {
 						XmlCompareBean xcb = new XmlCompareBean();
 						xcb.setPreValue(wrapChangedValue(mapSrc, mapDest, key, 1));
 						xcb.setNowValue("");

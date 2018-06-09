@@ -13,7 +13,7 @@ import com.test.example.code.forminit.model.FormInitTab;
 import com.test.example.core.dao.hibernate.SimpleHibernateDao;
 import com.test.example.core.exception.DaoException;
 import com.test.example.core.exception.ServiceException;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 
  
 
@@ -60,7 +60,7 @@ public class FormBaseLibraryDao extends SimpleHibernateDao<FormBaseLibrary, Long
 	 */
 	public List<FormInitItem> getFormInitItemListById(String formItems) throws DaoException, ServiceException {
 		String sql = "select t from FormInitItem t where  t.itemCode in ( :formitems ) order by t.seqNo";
-		List<Long> formitems = IrisStringUtils.getSplitLong(formItems);
+		List<Long> formitems = testStringUtils.getSplitLong(formItems);
 		Query query = super.getSession().createQuery(sql);
 		query.setParameterList("formitems", formitems);
 		@SuppressWarnings("unchecked")
@@ -79,7 +79,7 @@ public class FormBaseLibraryDao extends SimpleHibernateDao<FormBaseLibrary, Long
 	 */
 	public List<FormInitTab> getFormInitTabListById(String formTabs) throws DaoException, ServiceException {
 		String sql = "select t from FormInitTab t where  t.formTabCode in ( :formtabs )";
-		List<Long> formtabs = IrisStringUtils.getSplitLong(formTabs);
+		List<Long> formtabs = testStringUtils.getSplitLong(formTabs);
 		Query query = super.getSession().createQuery(sql);
 		query.setParameterList("formtabs", formtabs);
 		@SuppressWarnings("unchecked")

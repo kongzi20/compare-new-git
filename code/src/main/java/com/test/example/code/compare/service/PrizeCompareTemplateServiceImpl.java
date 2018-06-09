@@ -16,7 +16,7 @@ import com.test.example.code.compare.constant.CompareConstants;
 import com.test.example.code.compare.model.ProposalExtend;
 import com.test.example.core.utils.DateFormator;
 import com.test.example.core.utils.DateUtils;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 import com.test.example.core.utils.SimilarityUtils;
 import com.test.example.core.utils.XMLHelper;
 
@@ -79,23 +79,23 @@ public class PrizeCompareTemplateServiceImpl extends DataFilterJavaSupport imple
 		//3.组装xml
 		Document newDoc = DocumentHelper.createDocument();
 		Element root = newDoc.addElement("data");
-		root.addElement("zh_title").setText(zh_title == null ? "" : IrisStringUtils.full2Half(zh_title.getText().trim()));//全角转半角
-		root.addElement("prp_content").setText(prp_content == null ? "" : IrisStringUtils.full2Half(prp_content.getText().trim()));
-		root.addElement("zl_no").setText(zl_no == null ? "" : IrisStringUtils.full2Half(zl_no.getText().trim()));
-		/*root.addElement("content1").setText(content1 == null ? "" : IrisStringUtils.full2Half(content1.getText().trim()));
-		root.addElement("content2").setText(content2 == null ? "" : IrisStringUtils.full2Half(content2.getText().trim()));
-		root.addElement("content3").setText(content3 == null ? "" : IrisStringUtils.full2Half(content3.getText().trim()));
-		root.addElement("content4").setText(content4 == null ? "" : IrisStringUtils.full2Half(content4.getText().trim()));*/
+		root.addElement("zh_title").setText(zh_title == null ? "" : testStringUtils.full2Half(zh_title.getText().trim()));//全角转半角
+		root.addElement("prp_content").setText(prp_content == null ? "" : testStringUtils.full2Half(prp_content.getText().trim()));
+		root.addElement("zl_no").setText(zl_no == null ? "" : testStringUtils.full2Half(zl_no.getText().trim()));
+		/*root.addElement("content1").setText(content1 == null ? "" : testStringUtils.full2Half(content1.getText().trim()));
+		root.addElement("content2").setText(content2 == null ? "" : testStringUtils.full2Half(content2.getText().trim()));
+		root.addElement("content3").setText(content3 == null ? "" : testStringUtils.full2Half(content3.getText().trim()));
+		root.addElement("content4").setText(content4 == null ? "" : testStringUtils.full2Half(content4.getText().trim()));*/
 		if(pname != null){
 			Element rootP = root.addElement("zh_persons").addElement("list");
 			rootP.addAttribute("seq_no", Integer.toString(1));
-				rootP.addElement("zh_name").setText(pname == null ? "" : IrisStringUtils.full2Half(pname.getText().trim()));
-				rootP.addElement("gender_name").setText(gender == null ? "" : IrisStringUtils.full2Half(gender.getText().trim()));
-				rootP.addElement("position").setText(posi == null ? "" : IrisStringUtils.full2Half(posi.getText().trim()));
-				rootP.addElement("prof_title_name").setText(title == null ? "" : IrisStringUtils.full2Half(title.getText().trim()));
-				rootP.addElement("card_type_value").setText(tvalue == null ? "1" : IrisStringUtils.full2Half(tvalue.getText().trim()));
-				rootP.addElement("card_type_name").setText(type == null ? "身份证" : IrisStringUtils.full2Half(type.getText().trim()));
-				rootP.addElement("card_code").setText(code == null ? "" : IrisStringUtils.full2Half(code.getText().trim()));
+				rootP.addElement("zh_name").setText(pname == null ? "" : testStringUtils.full2Half(pname.getText().trim()));
+				rootP.addElement("gender_name").setText(gender == null ? "" : testStringUtils.full2Half(gender.getText().trim()));
+				rootP.addElement("position").setText(posi == null ? "" : testStringUtils.full2Half(posi.getText().trim()));
+				rootP.addElement("prof_title_name").setText(title == null ? "" : testStringUtils.full2Half(title.getText().trim()));
+				rootP.addElement("card_type_value").setText(tvalue == null ? "1" : testStringUtils.full2Half(tvalue.getText().trim()));
+				rootP.addElement("card_type_name").setText(type == null ? "身份证" : testStringUtils.full2Half(type.getText().trim()));
+				rootP.addElement("card_code").setText(code == null ? "" : testStringUtils.full2Half(code.getText().trim()));
 		}
 		
 		if(personList.size() != 0) {
@@ -112,13 +112,13 @@ public class PrizeCompareTemplateServiceImpl extends DataFilterJavaSupport imple
 					String zl_5 = root2.elementText("card_type_value").trim();
 					String zl_6 = root2.elementText("card_type_name").trim();
 					String zl_7 = root2.elementText("card_code").trim();
-					root1.addElement("zh_name").setText(zl_1 == null ? "" : IrisStringUtils.full2Half(zl_1));
-					root1.addElement("gender_name").setText(zl_2 == null ? "" : IrisStringUtils.full2Half(zl_2));
-					root1.addElement("position").setText(zl_3 == null ? "" : IrisStringUtils.full2Half(zl_3));
-					root1.addElement("prof_title_name").setText(zl_4 == null ? "" : IrisStringUtils.full2Half(zl_4));
-					root1.addElement("card_type_value").setText(zl_5 == null ? "" : IrisStringUtils.full2Half(zl_5));
-					root1.addElement("card_type_name").setText(zl_6 == null ? "" : IrisStringUtils.full2Half(zl_6));
-					root1.addElement("card_code").setText(zl_7 == null ? "" : IrisStringUtils.full2Half(zl_7));
+					root1.addElement("zh_name").setText(zl_1 == null ? "" : testStringUtils.full2Half(zl_1));
+					root1.addElement("gender_name").setText(zl_2 == null ? "" : testStringUtils.full2Half(zl_2));
+					root1.addElement("position").setText(zl_3 == null ? "" : testStringUtils.full2Half(zl_3));
+					root1.addElement("prof_title_name").setText(zl_4 == null ? "" : testStringUtils.full2Half(zl_4));
+					root1.addElement("card_type_value").setText(zl_5 == null ? "" : testStringUtils.full2Half(zl_5));
+					root1.addElement("card_type_name").setText(zl_6 == null ? "" : testStringUtils.full2Half(zl_6));
+					root1.addElement("card_code").setText(zl_7 == null ? "" : testStringUtils.full2Half(zl_7));
 					
 				num++;
 			}
@@ -135,11 +135,11 @@ public class PrizeCompareTemplateServiceImpl extends DataFilterJavaSupport imple
 				String zl_3 = zl.elementText("paper_author").trim();
 				String zl_4 = zl.elementText("publish_date").trim();
 				String zl_5 = zl.elementText("yesorno_name").trim();
-				root1.addElement("paper_name").setText(zl_1 == null ? "" : IrisStringUtils.full2Half(zl_1));
-				root1.addElement("paper").setText(zl_2 == null ? "" : IrisStringUtils.full2Half(zl_2));
-				root1.addElement("paper_author").setText(zl_3 == null ? "" : IrisStringUtils.full2Half(zl_3));
-				root1.addElement("publish_date").setText(zl_4 == null ? "" : IrisStringUtils.full2Half(zl_4));
-				root1.addElement("yesorno_name").setText(zl_5 == null ? "" : IrisStringUtils.full2Half(zl_5));
+				root1.addElement("paper_name").setText(zl_1 == null ? "" : testStringUtils.full2Half(zl_1));
+				root1.addElement("paper").setText(zl_2 == null ? "" : testStringUtils.full2Half(zl_2));
+				root1.addElement("paper_author").setText(zl_3 == null ? "" : testStringUtils.full2Half(zl_3));
+				root1.addElement("publish_date").setText(zl_4 == null ? "" : testStringUtils.full2Half(zl_4));
+				root1.addElement("yesorno_name").setText(zl_5 == null ? "" : testStringUtils.full2Half(zl_5));
 				num++;
 			}
 			
@@ -154,21 +154,21 @@ public class PrizeCompareTemplateServiceImpl extends DataFilterJavaSupport imple
 				String zl_3 = zl.elementText("authorization_date").trim();
 				String zl_4 = zl.elementText("obligee").trim();
 				String zl_5 = zl.elementText("inventer").trim();
-				root1.addElement("property_name").setText(zl_1 == null ? "" : IrisStringUtils.full2Half(zl_1));
-				root1.addElement("patent_number_part").setText(zl_2 == null ? "" : IrisStringUtils.full2Half(zl_2));
-				root1.addElement("authorization_date").setText(zl_3 == null ? "" : IrisStringUtils.full2Half(zl_3));
-				root1.addElement("obligee").setText(zl_4 == null ? "" : IrisStringUtils.full2Half(zl_4));
-				root1.addElement("inventer").setText(zl_5 == null ? "" : IrisStringUtils.full2Half(zl_5));
+				root1.addElement("property_name").setText(zl_1 == null ? "" : testStringUtils.full2Half(zl_1));
+				root1.addElement("patent_number_part").setText(zl_2 == null ? "" : testStringUtils.full2Half(zl_2));
+				root1.addElement("authorization_date").setText(zl_3 == null ? "" : testStringUtils.full2Half(zl_3));
+				root1.addElement("obligee").setText(zl_4 == null ? "" : testStringUtils.full2Half(zl_4));
+				root1.addElement("inventer").setText(zl_5 == null ? "" : testStringUtils.full2Half(zl_5));
 				num++;
 			}
 			
 		}else if(zl_no != null){
 			Element root1 = root.addElement("mainproperty").addElement("list");
-			root1.addElement("property_name").setText(zh_title == null ? "" : IrisStringUtils.full2Half(zh_title.getText().trim()));
-			root1.addElement("patent_number_part").setText(zl_no == null ? "" : IrisStringUtils.full2Half(zl_no.getText().trim()));
-			root1.addElement("authorization_date").setText(zl_date == null ? "" : IrisStringUtils.full2Half(zl_date.getText().trim()));
-			root1.addElement("obligee").setText(zl_qlr == null ? "" : IrisStringUtils.full2Half(zl_qlr.getText().trim()));
-			root1.addElement("inventer").setText(zl_fmr == null ? "" : IrisStringUtils.full2Half(zl_fmr.getText().trim()));
+			root1.addElement("property_name").setText(zh_title == null ? "" : testStringUtils.full2Half(zh_title.getText().trim()));
+			root1.addElement("patent_number_part").setText(zl_no == null ? "" : testStringUtils.full2Half(zl_no.getText().trim()));
+			root1.addElement("authorization_date").setText(zl_date == null ? "" : testStringUtils.full2Half(zl_date.getText().trim()));
+			root1.addElement("obligee").setText(zl_qlr == null ? "" : testStringUtils.full2Half(zl_qlr.getText().trim()));
+			root1.addElement("inventer").setText(zl_fmr == null ? "" : testStringUtils.full2Half(zl_fmr.getText().trim()));
 		}
 		
 		content = root.asXML();
@@ -266,25 +266,25 @@ public class PrizeCompareTemplateServiceImpl extends DataFilterJavaSupport imple
 		}
 			
 			if((similarity < 0.5)&&(srcContent!=null&&srcContent!="")&&(tagContent!=null&&tagContent!="")){
-				String sc = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent.toUpperCase()));//全角转半角，统一大写
-				String tc = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent.toUpperCase()));
+				String sc = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent.toUpperCase()));//全角转半角，统一大写
+				String tc = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent.toUpperCase()));
 				
 				similarity = SimilarityUtils.calculateSimilaryByClause(sc, tc, 4, CompareConstants.filterWord);
 			}
 			
 		/*	if((similarity < 0.5)&&(srcContent1!=null&&srcContent1!="")&&(tagContent1!=null&&tagContent1!="")&&(srcContent2!=null&&srcContent2!="")&&(tagContent2!=null&&tagContent2!="")
 					&&(srcContent3!=null&&srcContent3!="")&&(tagContent3!=null&&tagContent3!="")&&(srcContent4!=null&&srcContent4!="")&&(tagContent4!=null&&tagContent4!="")){
-				String sc1 = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent1.toUpperCase()));//全角转半角，统一大写
-				String tc1 = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent1.toUpperCase()));
+				String sc1 = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent1.toUpperCase()));//全角转半角，统一大写
+				String tc1 = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent1.toUpperCase()));
 				
-				String sc2 = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent2.toUpperCase()));//全角转半角，统一大写
-				String tc2 = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent2.toUpperCase()));
+				String sc2 = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent2.toUpperCase()));//全角转半角，统一大写
+				String tc2 = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent2.toUpperCase()));
 				
-				String sc3 = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent3.toUpperCase()));//全角转半角，统一大写
-				String tc3 = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent3.toUpperCase()));
+				String sc3 = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent3.toUpperCase()));//全角转半角，统一大写
+				String tc3 = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent3.toUpperCase()));
 				
-				String sc4 = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent4.toUpperCase()));//全角转半角，统一大写
-				String tc4 = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent4.toUpperCase()));
+				String sc4 = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent4.toUpperCase()));//全角转半角，统一大写
+				String tc4 = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent4.toUpperCase()));
 				
 				similarity = SimilarityUtils.calculateSimilaryByClause(sc1+sc2+sc3+sc4, tc1+tc2+tc3+tc4, 4, CompareConstants.filterWord);
 			}*/
@@ -405,8 +405,8 @@ public class PrizeCompareTemplateServiceImpl extends DataFilterJavaSupport imple
 		
 		
 		if((srcContent!=null&&srcContent!="")&&(tagContent!=null&&tagContent!="")){
-			String sc = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent.toUpperCase()));//全角转半角，统一大写
-			String tc = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent.toUpperCase()));
+			String sc = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent.toUpperCase()));//全角转半角，统一大写
+			String tc = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent.toUpperCase()));
 			
 			List<String> same1 = SimilarityUtils.getSameList(sc, tc, 4, CompareConstants.filterWord);
 			String fontColor1 = "#FF0000";
@@ -422,8 +422,8 @@ public class PrizeCompareTemplateServiceImpl extends DataFilterJavaSupport imple
 		
 		/*if((srcContent1!=null&&srcContent1!="")&&(tagContent1!=null&&tagContent1!="")){
 			
-			String sc = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent1.toUpperCase()));//全角转半角，统一大写
-			String tc = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent1.toUpperCase()));
+			String sc = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent1.toUpperCase()));//全角转半角，统一大写
+			String tc = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent1.toUpperCase()));
 			List<String> same1 = SimilarityUtils.getSameList(sc, tc, 4, CompareConstants.filterWord);
 			String fontColor1 = "#FF0000";
 			String backgroundColor = "#FFFFFF";
@@ -433,8 +433,8 @@ public class PrizeCompareTemplateServiceImpl extends DataFilterJavaSupport imple
 			targetRoot.element("content1").setText(tagContent1);
 		}
 		if((srcContent2!=null&&srcContent2!="")&&(tagContent2!=null&&tagContent2!="")){
-			String sc = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent2.toUpperCase()));//全角转半角，统一大写
-			String tc = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent2.toUpperCase()));
+			String sc = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent2.toUpperCase()));//全角转半角，统一大写
+			String tc = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent2.toUpperCase()));
 			
 			List<String> same1 = SimilarityUtils.getSameList(sc, tc, 4, CompareConstants.filterWord);
 			String fontColor1 = "#FF0000";
@@ -445,8 +445,8 @@ public class PrizeCompareTemplateServiceImpl extends DataFilterJavaSupport imple
 			targetRoot.element("content2").setText(tagContent2);
 		}
 		if((srcContent3!=null&&srcContent3!="")&&(tagContent3!=null&&tagContent3!="")){
-			String sc = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent3.toUpperCase()));//全角转半角，统一大写
-			String tc = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent3.toUpperCase()));
+			String sc = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent3.toUpperCase()));//全角转半角，统一大写
+			String tc = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent3.toUpperCase()));
 			
 			List<String> same1 = SimilarityUtils.getSameList(sc, tc, 4, CompareConstants.filterWord);
 			String fontColor1 = "#FF0000";
@@ -457,8 +457,8 @@ public class PrizeCompareTemplateServiceImpl extends DataFilterJavaSupport imple
 			targetRoot.element("content3").setText(tagContent3);
 		}
 		if((srcContent4!=null&&srcContent4!="")&&(tagContent4!=null&&tagContent4!="")){
-			String sc = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent4.toUpperCase()));//全角转半角，统一大写
-			String tc = IrisStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent4.toUpperCase()));
+			String sc = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(srcContent4.toUpperCase()));//全角转半角，统一大写
+			String tc = testStringUtils.full2Half(org.springframework.util.StringUtils.trimAllWhitespace(tagContent4.toUpperCase()));
 			
 			List<String> same1 = SimilarityUtils.getSameList(sc, tc, 4, CompareConstants.filterWord);
 			String fontColor1 = "#FF0000";

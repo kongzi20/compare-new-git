@@ -19,7 +19,7 @@ import com.test.example.code.wf.compnent.WorkFlowHqlCompnent;
 import com.test.example.code.wf.compnent.WorkflowSqlCompnent;
 import com.test.example.code.wf.constant.WfExpConstant;
 import com.test.example.core.exception.ServiceException;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 
 @Service("proposalRuleParamService")
 @Transactional(rollbackFor = Exception.class)
@@ -48,8 +48,8 @@ public class ProposalRuleParamServiceImpl implements ProposalRuleParamService {
 	public void updateParams(String[] idArr, Map<String, Object> params) {
 		for (String idStr : idArr) {
 			ProposalRuleParam ruleParam = this.proposalRuleParamDao.get(NumberUtils.toLong(idStr));
-			ruleParam.setUserCustomValue(IrisStringUtils.toString(params.get("expression_" + idStr)));
-			ruleParam.setUserCustomValueName(IrisStringUtils.toString(params.get("valueName_" + idStr)));
+			ruleParam.setUserCustomValue(testStringUtils.toString(params.get("expression_" + idStr)));
+			ruleParam.setUserCustomValueName(testStringUtils.toString(params.get("valueName_" + idStr)));
 			this.proposalRuleParamDao.save(ruleParam);
 		}
 	}	

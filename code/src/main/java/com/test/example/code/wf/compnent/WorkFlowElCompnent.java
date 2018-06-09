@@ -13,7 +13,7 @@ import com.test.example.code.wf.model.WfMessage;
 import com.test.example.code.wf.model.WfRule;
 import com.test.example.code.wf.utils.WfMessageUtils;
 import com.test.example.core.exception.ServiceException;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 
 
 
@@ -25,7 +25,7 @@ import com.test.example.core.utils.IrisStringUtils;
 @Component
 public class WorkFlowElCompnent {
 	public WfMessage getElEngRule(WfRule wfRule, Map<String, Object> param) throws ServiceException {
-		if(IrisStringUtils.isNullOrBlank(wfRule.getExpression())){
+		if(testStringUtils.isNullOrBlank(wfRule.getExpression())){
 			return null;
 		}
 		String el = buildEl(wfRule.getExpression(), param);
@@ -55,7 +55,7 @@ public class WorkFlowElCompnent {
 		while (m.find()) {
 			key = m.group().toLowerCase();
 			paramKey = key.substring(2, key.length() - 2);// 去掉[@ @]
-			el = IrisStringUtils.regexReplaceString(el, "\\[@" + paramKey + "@\\]", param.get(paramKey));
+			el = testStringUtils.regexReplaceString(el, "\\[@" + paramKey + "@\\]", param.get(paramKey));
 		}
 		return el;
 	}

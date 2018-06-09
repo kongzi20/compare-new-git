@@ -184,7 +184,7 @@ public class GrantSettingDao extends SimpleHibernateDao<GrantSetting, Long> {/*
 	 *            Arlon.Yang created this method at 2011-8-25
 	 *//*
 	@SuppressWarnings("unchecked")
-	public void updateGrantSchedule(String grantCode, String startTime, String endTime) {
+	public void updatexampleSchedule(String grantCode, String startTime, String endTime) {
 		if (grantCode != null && !"".equals(grantCode.trim())) {
 			String hql = " from GrantSchedule where grantCode=?";
 			List<GrantSchedule> list = this.getSession().createQuery(hql).setString(0, grantCode).list();

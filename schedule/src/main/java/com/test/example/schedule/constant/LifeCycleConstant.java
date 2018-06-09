@@ -2,7 +2,7 @@ package com.test.example.schedule.constant;
 
 /**
  *       生命周期常量
- * @author iris
+ * @author test
  *
  */
 public class LifeCycleConstant {

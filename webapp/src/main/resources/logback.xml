@@ -3,7 +3,7 @@
 <configuration>
 	<!-- 定义日志文件路径变量 -->
 	<substitutionProperty name="log.base"
-		value="java.io.tmpdir/logs/egrant-compare" />
+		value="java.io.tmpdir/logs/example-compare" />
 
 	<!-- stdout appender定义 -->
 	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
@@ -31,7 +31,7 @@
 		<appender-ref ref="stdout" />
 	</root>
  
-  <!-- <logger name="com.iris">
+  <!-- <logger name="com.test">
 		<level value="INFO" />
 	</logger>
 	

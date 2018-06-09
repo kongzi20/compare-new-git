@@ -78,14 +78,14 @@ public class SimilarityUtils {
 			Map.Entry<String, Integer> entry = it.next();
 			String keyStr = entry.getKey();
 			//大小写
-			if (jfreq.containsKey(IrisStringUtils.trimWhitespace(keyStr)) 
-					|| jfreq.containsKey(IrisStringUtils.trimWhitespace(keyStr).toLowerCase()) 
-					|| jfreq.containsKey(IrisStringUtils.trimWhitespace(keyStr).toUpperCase())) {
+			if (jfreq.containsKey(testStringUtils.trimWhitespace(keyStr))
+					|| jfreq.containsKey(testStringUtils.trimWhitespace(keyStr).toLowerCase())
+					|| jfreq.containsKey(testStringUtils.trimWhitespace(keyStr).toUpperCase())) {
 				sameList.add(entry.getKey());
 			}
 			//全角半角
-			else if (jfreq.containsKey(IrisStringUtils.full2Half(IrisStringUtils.trimWhitespace(keyStr))) 
-					|| jfreq.containsKey(IrisStringUtils.half2Full(IrisStringUtils.trimWhitespace(keyStr)))) {
+			else if (jfreq.containsKey(testStringUtils.full2Half(testStringUtils.trimWhitespace(keyStr)))
+					|| jfreq.containsKey(testStringUtils.half2Full(testStringUtils.trimWhitespace(keyStr)))) {
 				sameList.add(entry.getKey());
 			}
 			
@@ -273,21 +273,21 @@ public class SimilarityUtils {
 		for (String str : list) {
 			// 大小写 wk modify 2014-9-25 过滤换行
 			String str2 = str.replace("\n", "");
-			if (sameList.contains(IrisStringUtils.trimAllWhitespace(str2))
-					|| sameList.contains(IrisStringUtils.trimAllWhitespace(str2.toLowerCase()))
-					|| sameList.contains(IrisStringUtils.trimAllWhitespace(str2.toUpperCase()))) {
+			if (sameList.contains(testStringUtils.trimAllWhitespace(str2))
+					|| sameList.contains(testStringUtils.trimAllWhitespace(str2.toLowerCase()))
+					|| sameList.contains(testStringUtils.trimAllWhitespace(str2.toUpperCase()))) {
 				result.append(str.replace(str,highlightStr(str, fontColor, backgroundColor, mark)));
 			}
 			// 全角半角
-			else if (sameList.contains(IrisStringUtils.full2Half(IrisStringUtils.trimAllWhitespace(str2)))
-					|| sameList.contains(IrisStringUtils.half2Full(IrisStringUtils.trimAllWhitespace(str2)))) {
+			else if (sameList.contains(testStringUtils.full2Half(testStringUtils.trimAllWhitespace(str2)))
+					|| sameList.contains(testStringUtils.half2Full(testStringUtils.trimAllWhitespace(str2)))) {
 				result.append(str.replace(str,highlightStr(str, fontColor, backgroundColor, mark)));
 			}
 			// 大小写与全角半角
-			else if(sameList.contains(IrisStringUtils.full2Half(IrisStringUtils.trimAllWhitespace(str2.toUpperCase())))
-					|| sameList.contains(IrisStringUtils.half2Full(IrisStringUtils.trimAllWhitespace(str2.toUpperCase())))
-					|| sameList.contains(IrisStringUtils.full2Half(IrisStringUtils.trimAllWhitespace(str2.toLowerCase())))
-					|| sameList.contains(IrisStringUtils.half2Full(IrisStringUtils.trimAllWhitespace(str2.toLowerCase())))){
+			else if(sameList.contains(testStringUtils.full2Half(testStringUtils.trimAllWhitespace(str2.toUpperCase())))
+					|| sameList.contains(testStringUtils.half2Full(testStringUtils.trimAllWhitespace(str2.toUpperCase())))
+					|| sameList.contains(testStringUtils.full2Half(testStringUtils.trimAllWhitespace(str2.toLowerCase())))
+					|| sameList.contains(testStringUtils.half2Full(testStringUtils.trimAllWhitespace(str2.toLowerCase())))){
 				result.append(str.replace(str,highlightStr(str, fontColor, backgroundColor, mark)));
 			}
 			else {
@@ -304,7 +304,7 @@ public class SimilarityUtils {
 		 */
 		String[] strArr = str.split("&lt;br&gt;");
 		String newStr = "";
-		int value=IrisStringUtils.trimWhitespace(str).hashCode();
+		int value=testStringUtils.trimWhitespace(str).hashCode();
 		if(mark){
 			for (String s : strArr) {
 				if (strArr.length == 1) {

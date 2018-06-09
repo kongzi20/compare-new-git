@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 
 import com.test.example.code.compare.constant.CompareConstants;
 import com.test.example.code.compare.model.ProposalExtend;
-import com.test.example.core.utils.IrisStringUtils;
+import com.test.example.core.utils.testStringUtils;
 import com.test.example.core.utils.XMLHelper;
 
 /**
@@ -65,7 +65,7 @@ public class EquipmentCompareTemplateServiceImpl extends DataFilterJavaSupport i
 			root.addElement("intelligent").appendContent(intelligent);
 		}
 		Element org_no = (Element) doc.selectSingleNode(CompareConstants.HEZHUN_EXTRACT_XPATH_ORGNO);//组织机构代码
-		root.addElement("org_no").setText(org_no == null ? "" : IrisStringUtils.full2Half(org_no.getText().trim()));//全角转半角
+		root.addElement("org_no").setText(org_no == null ? "" : testStringUtils.full2Half(org_no.getText().trim()));//全角转半角
 		content = root.asXML();
 		
 		// System.out.println(content);
@@ -148,31 +148,31 @@ public class EquipmentCompareTemplateServiceImpl extends DataFilterJavaSupport i
 		String regEx="[、，]";//替换指定的分隔符
     	Pattern p = Pattern.compile(regEx); 
 		for (Node src : sourceList) {
-			String srcName = IrisStringUtils.full2Half(IrisStringUtils.filterNull(XMLHelperCacheable.getNodeValue(sourceContent, src, CompareConstants.EQUIPMENT_COMPARE_NAME) )).trim();
-			String srcModel = IrisStringUtils.full2Half(IrisStringUtils.filterNull(XMLHelperCacheable.getNodeValue(sourceContent, src, CompareConstants.EQUIPMENT_COMPARE_MODEL))).trim();
+			String srcName = testStringUtils.full2Half(testStringUtils.filterNull(XMLHelperCacheable.getNodeValue(sourceContent, src, CompareConstants.EQUIPMENT_COMPARE_NAME) )).trim();
+			String srcModel = testStringUtils.full2Half(testStringUtils.filterNull(XMLHelperCacheable.getNodeValue(sourceContent, src, CompareConstants.EQUIPMENT_COMPARE_MODEL))).trim();
 			String srcFapiao = XMLHelperCacheable.getNodeValue(sourceContent, src, CompareConstants.EQUIPMENT_COMPARE_FAPIAO);
-			srcFapiao = srcFapiao == null ? IrisStringUtils.full2Half(IrisStringUtils.filterNull(XMLHelperCacheable.getNodeValue(sourceContent, src, CompareConstants.EQUIPMENT_COMPARE_FAPIAO2))).trim() : IrisStringUtils.full2Half(IrisStringUtils.filterNull(srcFapiao)).trim();
+			srcFapiao = srcFapiao == null ? testStringUtils.full2Half(testStringUtils.filterNull(XMLHelperCacheable.getNodeValue(sourceContent, src, CompareConstants.EQUIPMENT_COMPARE_FAPIAO2))).trim() : testStringUtils.full2Half(testStringUtils.filterNull(srcFapiao)).trim();
 			/*srcFapiao.replaceAll("，", ",");
 			srcFapiao.replaceAll("、", ",");*/
 			Matcher m = p.matcher(srcFapiao); 
 			srcFapiao=m.replaceAll(",");
-			String srcDate = IrisStringUtils.filterNull( XMLHelperCacheable.getNodeValue(sourceContent, src, CompareConstants.EQUIPMENT_COMPARE_DATE));
+			String srcDate = testStringUtils.filterNull( XMLHelperCacheable.getNodeValue(sourceContent, src, CompareConstants.EQUIPMENT_COMPARE_DATE));
 			
 			String srcMoney = XMLHelperCacheable.getNodeValue(sourceContent, src, CompareConstants.EQUIPMENT_COMPARE_MONEY);
 			if(!NumberUtils.isNumber(srcMoney)) continue;
 			total += Double.valueOf(srcMoney);
 			
 			for (Node tge : targetList) {
-				String tgeName = IrisStringUtils.full2Half(IrisStringUtils.filterNull(XMLHelperCacheable.getNodeValue(targetContent, tge, CompareConstants.EQUIPMENT_COMPARE_NAME))).trim();
-				String tgeModel = IrisStringUtils.full2Half(IrisStringUtils.filterNull( XMLHelperCacheable.getNodeValue(targetContent, tge,CompareConstants.EQUIPMENT_COMPARE_MODEL))).trim();
+				String tgeName = testStringUtils.full2Half(testStringUtils.filterNull(XMLHelperCacheable.getNodeValue(targetContent, tge, CompareConstants.EQUIPMENT_COMPARE_NAME))).trim();
+				String tgeModel = testStringUtils.full2Half(testStringUtils.filterNull( XMLHelperCacheable.getNodeValue(targetContent, tge,CompareConstants.EQUIPMENT_COMPARE_MODEL))).trim();
 				String tgeFapiao =   XMLHelperCacheable.getNodeValue(targetContent, tge, CompareConstants.EQUIPMENT_COMPARE_FAPIAO)  ;
-				tgeFapiao = tgeFapiao == null ? IrisStringUtils.full2Half(IrisStringUtils.filterNull(  XMLHelperCacheable.getNodeValue(targetContent, tge, CompareConstants.EQUIPMENT_COMPARE_FAPIAO2))).trim() : IrisStringUtils.full2Half(IrisStringUtils.filterNull(tgeFapiao)).trim();
+				tgeFapiao = tgeFapiao == null ? testStringUtils.full2Half(testStringUtils.filterNull(  XMLHelperCacheable.getNodeValue(targetContent, tge, CompareConstants.EQUIPMENT_COMPARE_FAPIAO2))).trim() : testStringUtils.full2Half(testStringUtils.filterNull(tgeFapiao)).trim();
 				/*tgeFapiao.replaceAll("，", ",");
 				tgeFapiao.replaceAll("、", ",");*/
 				Matcher m2 = p.matcher(tgeFapiao); 
 				tgeFapiao=m2.replaceAll(",");
 				String tgeDate =   XMLHelperCacheable.getNodeValue(targetContent, tge, CompareConstants.EQUIPMENT_COMPARE_DATE) ;
-				String tgeMoney = IrisStringUtils.filterNull(  XMLHelperCacheable.getNodeValue(targetContent, tge, CompareConstants.EQUIPMENT_COMPARE_MONEY));
+				String tgeMoney = testStringUtils.filterNull(  XMLHelperCacheable.getNodeValue(targetContent, tge, CompareConstants.EQUIPMENT_COMPARE_MONEY));
 				if(!NumberUtils.isNumber(tgeMoney)) continue;
 				
 				if(isSameOrg){//同一单位
@@ -270,28 +270,28 @@ public class EquipmentCompareTemplateServiceImpl extends DataFilterJavaSupport i
 		for (Element src : sourcetList) {
 			flag = "";
 			List<Element> delList = new ArrayList<Element>();
-			String srcName = IrisStringUtils.full2Half(IrisStringUtils.filterNull(src.elementText(CompareConstants.EQUIPMENT_COMPARE_NAME))).trim();
-			String srcModel = IrisStringUtils.full2Half(IrisStringUtils.filterNull(src.elementText(CompareConstants.EQUIPMENT_COMPARE_MODEL))).trim();
+			String srcName = testStringUtils.full2Half(testStringUtils.filterNull(src.elementText(CompareConstants.EQUIPMENT_COMPARE_NAME))).trim();
+			String srcModel = testStringUtils.full2Half(testStringUtils.filterNull(src.elementText(CompareConstants.EQUIPMENT_COMPARE_MODEL))).trim();
 			String srcFapiao = src.elementText(CompareConstants.EQUIPMENT_COMPARE_FAPIAO);
-			srcFapiao = srcFapiao == null ? IrisStringUtils.full2Half(IrisStringUtils.filterNull(src.elementText(CompareConstants.EQUIPMENT_COMPARE_FAPIAO2))).trim() : IrisStringUtils.full2Half(IrisStringUtils.filterNull(srcFapiao)).trim();
+			srcFapiao = srcFapiao == null ? testStringUtils.full2Half(testStringUtils.filterNull(src.elementText(CompareConstants.EQUIPMENT_COMPARE_FAPIAO2))).trim() : testStringUtils.full2Half(testStringUtils.filterNull(srcFapiao)).trim();
 			Matcher m = p.matcher(srcFapiao); 
 			srcFapiao=m.replaceAll(",");
 			/*srcFapiao.replaceAll("，", ",");
 			srcFapiao.replaceAll("、", ",");*/
-			String srcDate = IrisStringUtils.filterNull(src.elementText(CompareConstants.EQUIPMENT_COMPARE_DATE));
+			String srcDate = testStringUtils.filterNull(src.elementText(CompareConstants.EQUIPMENT_COMPARE_DATE));
 			
 			//2.2疑似项目设备表1比较
 			for (Element tge : targetList) {
 				flag = "";
-				String tgeName = IrisStringUtils.full2Half(IrisStringUtils.filterNull(tge.elementText(CompareConstants.EQUIPMENT_COMPARE_NAME))).trim();
-				String tgeModel = IrisStringUtils.full2Half(IrisStringUtils.filterNull(tge.elementText(CompareConstants.EQUIPMENT_COMPARE_MODEL))).trim();
+				String tgeName = testStringUtils.full2Half(testStringUtils.filterNull(tge.elementText(CompareConstants.EQUIPMENT_COMPARE_NAME))).trim();
+				String tgeModel = testStringUtils.full2Half(testStringUtils.filterNull(tge.elementText(CompareConstants.EQUIPMENT_COMPARE_MODEL))).trim();
 				String tgeFapiao = tge.elementText(CompareConstants.EQUIPMENT_COMPARE_FAPIAO);
-				tgeFapiao = tgeFapiao == null ? IrisStringUtils.full2Half(IrisStringUtils.filterNull(tge.elementText(CompareConstants.EQUIPMENT_COMPARE_FAPIAO2))).trim() : IrisStringUtils.full2Half(IrisStringUtils.filterNull(tgeFapiao)).trim();
+				tgeFapiao = tgeFapiao == null ? testStringUtils.full2Half(testStringUtils.filterNull(tge.elementText(CompareConstants.EQUIPMENT_COMPARE_FAPIAO2))).trim() : testStringUtils.full2Half(testStringUtils.filterNull(tgeFapiao)).trim();
 				Matcher m2 = p.matcher(tgeFapiao); 
 				tgeFapiao=m2.replaceAll(",");
 				/*tgeFapiao.replaceAll("，", ",");
 				tgeFapiao.replaceAll("、", ",");*/
-				String tgeDate = IrisStringUtils.filterNull(tge.elementText(CompareConstants.EQUIPMENT_COMPARE_DATE));
+				String tgeDate = testStringUtils.filterNull(tge.elementText(CompareConstants.EQUIPMENT_COMPARE_DATE));
 				
 				if(isSameOrg){
 					if(srcName.equalsIgnoreCase(tgeName) && !CompareConstants.filterWord.contains(srcModel) && srcModel.equalsIgnoreCase(tgeModel)
